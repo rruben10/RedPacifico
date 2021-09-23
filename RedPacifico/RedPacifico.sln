@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedPacifico", "RedPacifico\RedPacifico.csproj", "{8D975041-CCEE-41B2-AC3A-75D7D330419F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D975041-CCEE-41B2-AC3A-75D7D330419F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D975041-CCEE-41B2-AC3A-75D7D330419F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D975041-CCEE-41B2-AC3A-75D7D330419F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D975041-CCEE-41B2-AC3A-75D7D330419F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A7BAD0D-7902-4860-A6BA-309BAD998333}
+	EndGlobalSection
+EndGlobal
