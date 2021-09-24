@@ -35,7 +35,10 @@ namespace RedPacifico
 
             for (int i = 0; i < datosCliente.Rows.Count; i++)
             {
-                lista.Add(datosCliente.Rows[i]["nombreCompleto"].ToString());
+                string nombreCompleto = datosCliente.Rows[i]["nombre"].ToString() + " " + 
+                    datosCliente.Rows[i]["apellidoPaterno"].ToString() + " " + 
+                    datosCliente.Rows[i]["apellidoMaterno"].ToString();
+                lista.Add(nombreCompleto);
             }
 
             txtCliente.AutoCompleteCustomSource = lista;

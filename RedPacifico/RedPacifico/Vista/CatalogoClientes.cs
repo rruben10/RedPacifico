@@ -16,7 +16,9 @@ namespace RedPacifico
 {
     public partial class Form_catalogoClientes : Form, ICatalogoClienteController
     {
+        //Conexion a la antigua
         MySqlConnection conexion = Conexion.obtenerConexion();
+
         private Controlador.CatalogoClienteController _controlador;
         public Form_catalogoClientes()
         {
@@ -33,7 +35,7 @@ namespace RedPacifico
 
                 foreach(Cliente cliente in listClientes)
                 {
-                    string nombreCompleto = cliente.Nombre +" "+ cliente.ApellidoMaterno +" "+ cliente.ApellidoMaterno;
+                    string nombreCompleto = cliente.Nombre +" "+ cliente.ApellidoPaterno +" "+ cliente.ApellidoMaterno;
                     gridCatalogoClientes.Rows.Add(cliente.Id, nombreCompleto);
                 }
 
@@ -53,6 +55,21 @@ namespace RedPacifico
         {
             Form_detalleCliente detalleCliente = new Form_detalleCliente();
             detalleCliente.ShowDialog();
+
+            this.Close();
+        }
+
+        private void gridCatalogoClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gridCatalogoClientes.Columns[e.ColumnIndex].Name == "columEditar")
+            {
+                int idCliente = int.Parse(gridCatalogoClientes.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                Form_detalleCliente detalleCliente = new Form_detalleCliente(idCliente);
+                detalleCliente.ShowDialog();
+
+                this.Close();
+            }
         }
     }
 }

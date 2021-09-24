@@ -29,6 +29,7 @@ namespace RedPacifico
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblDetalleNombre = new System.Windows.Forms.Label();
             this.txtDetalleNombre = new System.Windows.Forms.TextBox();
             this.txtDetallePaterno = new System.Windows.Forms.TextBox();
@@ -39,6 +40,8 @@ namespace RedPacifico
             this.lblRFC = new System.Windows.Forms.Label();
             this.btnDetalleCancelar = new System.Windows.Forms.Button();
             this.btnDetalleGuardar = new System.Windows.Forms.Button();
+            this.errorCampoValido = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorCampoValido)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDetalleNombre
@@ -114,6 +117,7 @@ namespace RedPacifico
             this.btnDetalleCancelar.TabIndex = 8;
             this.btnDetalleCancelar.Text = "Cancelar";
             this.btnDetalleCancelar.UseVisualStyleBackColor = true;
+            this.btnDetalleCancelar.Click += new System.EventHandler(this.btnDetalleCancelar_Click);
             // 
             // btnDetalleGuardar
             // 
@@ -123,6 +127,11 @@ namespace RedPacifico
             this.btnDetalleGuardar.TabIndex = 9;
             this.btnDetalleGuardar.Text = "Guardar";
             this.btnDetalleGuardar.UseVisualStyleBackColor = true;
+            this.btnDetalleGuardar.Click += new System.EventHandler(this.btnDetalleGuardar_Click);
+            // 
+            // errorCampoValido
+            // 
+            this.errorCampoValido.ContainerControl = this;
             // 
             // Form_detalleCliente
             // 
@@ -141,6 +150,7 @@ namespace RedPacifico
             this.Controls.Add(this.lblDetalleNombre);
             this.Name = "Form_detalleCliente";
             this.Text = "Datos Cliente";
+            ((System.ComponentModel.ISupportInitialize)(this.errorCampoValido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +168,6 @@ namespace RedPacifico
         private System.Windows.Forms.Label lblRFC;
         private System.Windows.Forms.Button btnDetalleCancelar;
         private System.Windows.Forms.Button btnDetalleGuardar;
+        private System.Windows.Forms.ErrorProvider errorCampoValido;
     }
 }

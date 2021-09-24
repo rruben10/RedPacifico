@@ -64,6 +64,7 @@ namespace RedPacifico
             this.gridCatalogoClientes.ReadOnly = true;
             this.gridCatalogoClientes.Size = new System.Drawing.Size(776, 286);
             this.gridCatalogoClientes.TabIndex = 1;
+            this.gridCatalogoClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCatalogoClientes_CellContentClick);
             // 
             // idCliente
             // 
@@ -85,6 +86,7 @@ namespace RedPacifico
             this.columEditar.Name = "columEditar";
             this.columEditar.ReadOnly = true;
             this.columEditar.Text = "Editar";
+            this.columEditar.UseColumnTextForButtonValue = true;
             // 
             // Form_catalogoClientes
             // 

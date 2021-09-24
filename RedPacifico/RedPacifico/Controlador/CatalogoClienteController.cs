@@ -11,17 +11,17 @@ namespace RedPacifico.Controlador
     class CatalogoClienteController
     {
         private readonly ICatalogoClienteController _vista;
-        private CatalogoClienteModel _modelo;
+        private CatalogoClienteModel _model;
 
         public CatalogoClienteController(ICatalogoClienteController vista)
         {
             _vista = vista;
-            _modelo = new CatalogoClienteModel();
+            _model = new CatalogoClienteModel();
         }
 
         public void ConsultarCatalogoClientes()
         {
-            _vista.ConsultaClientes(_modelo.ObtenerClientes());
+            _vista.ConsultaClientes(_model.ObtenerClientes());
         }
     }
 }

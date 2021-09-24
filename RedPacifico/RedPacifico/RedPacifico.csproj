@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\CatalogoClienteController.cs" />
+    <Compile Include="Controlador\DetalleClienteController.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entity\clientes.cs">
       <DependentUpon>EntitySistema.tt</DependentUpon>
@@ -130,7 +131,9 @@
       <DependentUpon>EntitySistema.tt</DependentUpon>
     </Compile>
     <Compile Include="Interface\ICatalogoClienteController.cs" />
+    <Compile Include="Interface\IDetalleClienteController.cs" />
     <Compile Include="Modelo\CatalogoClienteModel.cs" />
+    <Compile Include="Modelo\DetalleClienteModel.cs" />
     <Compile Include="Vista\CatalogoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
