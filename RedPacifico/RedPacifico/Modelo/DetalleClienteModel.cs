@@ -16,7 +16,7 @@ namespace RedPacifico.Modelo
             int grabado = 0;
             try
             {
-                using (sistemaEntities db = new sistemaEntities())
+                using (sistemaEntities1 db = new sistemaEntities1())
                 {
                     clientes oCliente = new clientes
                     {
@@ -46,10 +46,11 @@ namespace RedPacifico.Modelo
             Cliente obCliente = new Cliente();
             try
             {
-                using (sistemaEntities db = new sistemaEntities())
+                using (sistemaEntities1 db = new sistemaEntities1())
                 {
                     var cliente = db.clientes.Find(idCliente);
 
+                    obCliente.Id = int.Parse(cliente.id.ToString());
                     obCliente.Nombre = cliente.nombre;
                     obCliente.ApellidoPaterno = cliente.apellidoPaterno;
                     obCliente.ApellidoMaterno = cliente.apellidoMaterno;
@@ -64,6 +65,34 @@ namespace RedPacifico.Modelo
 
 
             return obCliente;
+        }
+
+        public Boolean ActualizarDatos(int idCliente, string nombre, string apellidoPat, string apellidoMat, string RFC)
+        {
+            bool actualizoCliente = false;
+            try
+            {
+                using (sistemaEntities1 db = new sistemaEntities1())
+                {
+                    var cliente = db.clientes.Find(idCliente);
+
+                    cliente.nombre = nombre;
+                    cliente.apellidoPaterno = apellidoPat;
+                    cliente.apellidoMaterno = apellidoMat;
+                    cliente.RFC = RFC;
+
+                    db.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    actualizoCliente = true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return actualizoCliente;
         }
     }
 }

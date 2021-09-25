@@ -13,9 +13,9 @@ namespace RedPacifico.Interface
         string DetalleApePaterno { get; set; }
         string DetalleApeMaterno { get; set; }
         string DetalleRFC { get; set; }
-        //int IdCliente { get; set; }
+        int IdCliente { get; set; }
 
         void GuardarRegistro(int grabado);
-        void ConsultaClientes(Cliente objCliente);
+        void ConsultaCliente(Cliente objCliente);
     }
 }

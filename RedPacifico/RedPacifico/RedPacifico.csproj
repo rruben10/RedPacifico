@@ -104,36 +104,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\CatalogoClienteController.cs" />
+    <Compile Include="Controlador\CatalogoProductoController.cs" />
     <Compile Include="Controlador\DetalleClienteController.cs" />
+    <Compile Include="Controlador\DetalleProductoController.cs" />
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entity\clientes.cs">
-      <DependentUpon>EntitySistema.tt</DependentUpon>
+      <DependentUpon>SistemaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\configuracion.cs">
-      <DependentUpon>EntitySistema.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\EntitySistema.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntitySistema.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\EntitySistema.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntitySistema.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\EntitySistema.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntitySistema.edmx</DependentUpon>
+      <DependentUpon>SistemaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\productos.cs">
-      <DependentUpon>EntitySistema.tt</DependentUpon>
+      <DependentUpon>SistemaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SistemaEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SistemaEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SistemaEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Interface\ICatalogoClienteController.cs" />
+    <Compile Include="Interface\ICatalogoProductoController.cs" />
     <Compile Include="Interface\IDetalleClienteController.cs" />
+    <Compile Include="Interface\IDetalleProductoController.cs" />
     <Compile Include="Modelo\CatalogoClienteModel.cs" />
+    <Compile Include="Modelo\CatalogoProductoModel.cs" />
     <Compile Include="Modelo\DetalleClienteModel.cs" />
+    <Compile Include="Modelo\DetalleProductoModel.cs" />
     <Compile Include="Vista\CatalogoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,12 +217,12 @@
     <EmbeddedResource Include="Vista\SistemaOpciones.resx">
       <DependentUpon>SistemaOpciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Entity\EntitySistema.edmx">
+    <EntityDeploy Include="Entity\SistemaEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntitySistema.Designer.cs</LastGenOutput>
+      <LastGenOutput>SistemaEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entity\EntitySistema.edmx.diagram">
-      <DependentUpon>EntitySistema.edmx</DependentUpon>
+    <None Include="Entity\SistemaEntity.edmx.diagram">
+      <DependentUpon>SistemaEntity.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -234,17 +241,16 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Entity\EntitySistema.Context.tt">
+    <Content Include="Entity\SistemaEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntitySistema.edmx</DependentUpon>
-      <LastGenOutput>EntitySistema.Context.cs</LastGenOutput>
+      <DependentUpon>SistemaEntity.edmx</DependentUpon>
+      <LastGenOutput>SistemaEntity.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity\EntitySistema.tt">
+    <Content Include="Entity\SistemaEntity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntitySistema.edmx</DependentUpon>
-      <LastGenOutput>EntitySistema.cs</LastGenOutput>
+      <DependentUpon>SistemaEntity.edmx</DependentUpon>
+      <LastGenOutput>SistemaEntity.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

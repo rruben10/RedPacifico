@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace RedPacifico.Modelo
 {
-    class CatalogoClienteModel
+    class CatalogoProductoModel
     {
-        public List<Cliente> ObtenerClientes()
+        public List<Producto> ObtenerProductos()
         {
-            List<Cliente> listaClientes = new List<Cliente>();
+            List<Producto> listaProductos = new List<Producto>();
 
             try
             {
@@ -20,31 +20,31 @@ namespace RedPacifico.Modelo
                 using (sistemaEntities1 db = new sistemaEntities1())
                 {
                     //Se hace una lista de la consulta completa de la tabla clientes
-                    var listaSqlCliente = db.clientes.ToList();
+                    var listaSqlCliente = db.productos.ToList();
 
                     //Se recorre la lista con los clientes
-                    foreach (var oCliente in listaSqlCliente)
+                    foreach (var oProducto in listaSqlCliente)
                     {
                         //Se agrega a un objeto cada cliente para una lista del tipo List<Cliente>
-                        Cliente ObjCliente = new Cliente
+                        Producto objProducto = new Producto
                         {
-                            Id = Convert.ToInt32(oCliente.id),
-                            Nombre = oCliente.nombre,
-                            ApellidoPaterno = oCliente.apellidoPaterno,
-                            ApellidoMaterno = oCliente.apellidoMaterno,
-                            RFC = oCliente.RFC
+                            IdProducto = Convert.ToInt32(oProducto.id),
+                            Descripcion = oProducto.descripcion,
+                            Modelo = oProducto.modelo,
+                            Precio = oProducto.precio,
+                            Existencia = oProducto.existencia
                         };
 
-                        listaClientes.Add(ObjCliente);
+                        listaProductos.Add(objProducto);
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
 
-            return listaClientes;
+            return listaProductos;
         }
     }
 }

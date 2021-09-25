@@ -65,18 +65,18 @@ namespace RedPacifico
             }
         }
 
-        /*public int IdCliente
+        public int IdCliente
         {
             get
             {
-                return idCliente;
+                return int.Parse(txtIdCliente.Text);
             }
-
             set
             {
                 IdCliente = value;
             }
-        }*/
+        }
+
         #endregion
 
         public Form_detalleCliente()
@@ -92,6 +92,10 @@ namespace RedPacifico
 
             _controlador.ConsultaCliente(idCliente);
 
+            this.btnDetalleGuardar.Text = "Actualizar";
+
+
+
         }
 
         private void btnDetalleGuardar_Click(object sender, EventArgs e)
@@ -100,6 +104,16 @@ namespace RedPacifico
             if (mensaje != "")
             {
                 MessageBox.Show(mensaje);
+            }
+            else if (this.btnDetalleGuardar.Text == "Actualizar")
+            {
+                if(_controlador.ActualizarDatosCliente())
+                {
+                    MessageBox.Show("Se actualizaron los datos correctamente.");
+                    this.Close();
+                    Form_catalogoClientes catalogo = new Form_catalogoClientes();
+                    catalogo.ShowDialog();
+                }
             }
             else
             {
@@ -124,7 +138,7 @@ namespace RedPacifico
                 MensajeCamposInvalidos = string.Format("Favor de ingresar {0} es obligatorio", lblDetalleNombre.Text);
                 return MensajeCamposInvalidos;
             }
-            if(txtDetallePaterno.Text == "")
+            if (txtDetallePaterno.Text == "")
             {
                 errorCampoValido.SetError(txtDetallePaterno, "Ingresar Apellido Paterno");
                 MensajeCamposInvalidos = string.Format("Favor de ingresar {0} es obligatorio", lblDetallePaterno.Text);
@@ -160,19 +174,21 @@ namespace RedPacifico
             {
                 MessageBox.Show("El cliente ha sido registrado correctamente");
 
+                this.Close();
+
                 Form_catalogoClientes formCatalogoClientes = new Form_catalogoClientes();
                 formCatalogoClientes.ShowDialog();
-
-                this.Close();
             }
         }
 
-        void IDetalleClienteController.ConsultaClientes(Cliente objCliente)
+        void IDetalleClienteController.ConsultaCliente(Cliente objCliente)
         {
+            txtIdCliente.Text = objCliente.Id.ToString();
             txtDetalleNombre.Text = objCliente.Nombre;
             txtDetallePaterno.Text = objCliente.ApellidoPaterno;
             txtDetalleMaterno.Text = objCliente.ApellidoMaterno;
             txtDetalleRFC.Text = objCliente.RFC;
         }
     }
+
 }

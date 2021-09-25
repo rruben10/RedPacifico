@@ -73,7 +73,7 @@
           <Property Name="precio" Type="Int32" Nullable="false" />
           <Property Name="existencia" Type="Int16" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="sistemaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="sistemaEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="clientes" EntityType="Self.clientes" />
           <EntitySet Name="configuracion" EntityType="Self.configuracion" />
           <EntitySet Name="productos" EntityType="Self.productos" />
@@ -83,7 +83,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="sistemaModelStoreContainer" CdmEntityContainer="sistemaEntities">
+        <EntityContainerMapping StorageEntityContainer="sistemaModelStoreContainer" CdmEntityContainer="sistemaEntities1">
           <EntitySetMapping Name="clientes">
             <EntityTypeMapping TypeName="sistemaModel.clientes">
               <MappingFragment StoreEntitySet="clientes">

@@ -13,10 +13,10 @@ namespace RedPacifico.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sistemaEntities : DbContext
+    public partial class sistemaEntities1 : DbContext
     {
-        public sistemaEntities()
-            : base("name=sistemaEntities")
+        public sistemaEntities1()
+            : base("name=sistemaEntities1")
         {
         }
     

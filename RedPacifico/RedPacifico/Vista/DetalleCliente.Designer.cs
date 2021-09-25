@@ -41,6 +41,8 @@ namespace RedPacifico
             this.btnDetalleCancelar = new System.Windows.Forms.Button();
             this.btnDetalleGuardar = new System.Windows.Forms.Button();
             this.errorCampoValido = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblidCliente = new System.Windows.Forms.Label();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorCampoValido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,11 +135,31 @@ namespace RedPacifico
             // 
             this.errorCampoValido.ContainerControl = this;
             // 
+            // lblidCliente
+            // 
+            this.lblidCliente.AutoSize = true;
+            this.lblidCliente.Location = new System.Drawing.Point(193, 71);
+            this.lblidCliente.Name = "lblidCliente";
+            this.lblidCliente.Size = new System.Drawing.Size(39, 13);
+            this.lblidCliente.TabIndex = 10;
+            this.lblidCliente.Text = "Cliente";
+            this.lblidCliente.Visible = false;
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(241, 71);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtIdCliente.TabIndex = 11;
+            this.txtIdCliente.Visible = false;
+            // 
             // Form_detalleCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtIdCliente);
+            this.Controls.Add(this.lblidCliente);
             this.Controls.Add(this.btnDetalleGuardar);
             this.Controls.Add(this.btnDetalleCancelar);
             this.Controls.Add(this.txtDetalleRFC);
@@ -169,5 +191,7 @@ namespace RedPacifico
         private System.Windows.Forms.Button btnDetalleCancelar;
         private System.Windows.Forms.Button btnDetalleGuardar;
         private System.Windows.Forms.ErrorProvider errorCampoValido;
+        private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.Label lblidCliente;
     }
 }

@@ -26,7 +26,18 @@ namespace RedPacifico.Controlador
 
         public void ConsultaCliente(int idCliente)
         {
-            _vista.ConsultaClientes(_model.DetalleCliente(idCliente));
+            _vista.ConsultaCliente(_model.DetalleCliente(idCliente));
+        }
+
+        public Boolean ActualizarDatosCliente()
+        {
+            bool actualizoCliente = false;
+            if(_model.ActualizarDatos(_vista.IdCliente ,_vista.DetalleNombre, _vista.DetalleApePaterno, _vista.DetalleApeMaterno, _vista.DetalleRFC))
+            {
+                actualizoCliente = true;
+            }
+
+            return actualizoCliente;
         }
     }
 }
