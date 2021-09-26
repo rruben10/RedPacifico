@@ -15,7 +15,7 @@ namespace RedPacifico.Modelo
             int grabado = 0;
             try
             {
-                using (sistemaEntities1 db = new sistemaEntities1())
+                using (sistemaEntities2 db = new sistemaEntities2())
                 {
                     productos objProducto = new productos
                     {
@@ -45,7 +45,7 @@ namespace RedPacifico.Modelo
             Producto objProducto = new Producto();
             try
             {
-                using (sistemaEntities1 db = new sistemaEntities1())
+                using (sistemaEntities2 db = new sistemaEntities2())
                 {
                     var producto = db.productos.Find(idProducto);
 
@@ -71,7 +71,7 @@ namespace RedPacifico.Modelo
             bool actualizoProducto = false;
             try
             {
-                using (sistemaEntities1 db = new sistemaEntities1())
+                using (sistemaEntities2 db = new sistemaEntities2())
                 {
                     var producto = db.productos.Find(idProducto);
 

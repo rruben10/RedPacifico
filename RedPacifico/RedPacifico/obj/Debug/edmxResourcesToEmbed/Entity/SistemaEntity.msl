@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="sistemaModelStoreContainer" CdmEntityContainer="sistemaEntities1">
+  <EntityContainerMapping StorageEntityContainer="sistemaModelStoreContainer" CdmEntityContainer="sistemaEntities2">
     <EntitySetMapping Name="clientes">
       <EntityTypeMapping TypeName="sistemaModel.clientes">
         <MappingFragment StoreEntitySet="clientes">
@@ -30,6 +30,18 @@
           <ScalarProperty Name="modelo" ColumnName="modelo" />
           <ScalarProperty Name="precio" ColumnName="precio" />
           <ScalarProperty Name="existencia" ColumnName="existencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ventas">
+      <EntityTypeMapping TypeName="sistemaModel.ventas">
+        <MappingFragment StoreEntitySet="ventas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="producto" ColumnName="producto" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

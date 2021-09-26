@@ -1,7 +1,7 @@
 ﻿
 namespace RedPacifico
 {
-    partial class Form_catalogoClientes
+    partial class Form_CatalogoClientes
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -88,14 +88,14 @@ namespace RedPacifico
             this.columEditar.Text = "Editar";
             this.columEditar.UseColumnTextForButtonValue = true;
             // 
-            // Form_catalogoClientes
+            // Form_CatalogoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gridCatalogoClientes);
             this.Controls.Add(this.btnNuevoCliente);
-            this.Name = "Form_catalogoClientes";
+            this.Name = "Form_CatalogoClientes";
             this.Text = "Catálogo Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.gridCatalogoClientes)).EndInit();
             this.ResumeLayout(false);

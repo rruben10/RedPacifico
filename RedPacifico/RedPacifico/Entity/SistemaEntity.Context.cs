@@ -13,10 +13,10 @@ namespace RedPacifico.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sistemaEntities1 : DbContext
+    public partial class sistemaEntities2 : DbContext
     {
-        public sistemaEntities1()
-            : base("name=sistemaEntities1")
+        public sistemaEntities2()
+            : base("name=sistemaEntities2")
         {
         }
     
@@ -28,5 +28,6 @@ namespace RedPacifico.Entity
         public virtual DbSet<clientes> clientes { get; set; }
         public virtual DbSet<configuracion> configuracion { get; set; }
         public virtual DbSet<productos> productos { get; set; }
+        public virtual DbSet<ventas> ventas { get; set; }
     }
 }

@@ -12,21 +12,16 @@ namespace RedPacifico.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class productos
+    public partial class ventas
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public productos()
-        {
-            this.ventas = new HashSet<ventas>();
-        }
-    
         public long id { get; set; }
-        public string descripcion { get; set; }
-        public string modelo { get; set; }
+        public Nullable<long> cliente { get; set; }
+        public Nullable<long> producto { get; set; }
+        public int cantidad { get; set; }
         public int precio { get; set; }
-        public short existencia { get; set; }
+        public int importe { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ventas> ventas { get; set; }
+        public virtual clientes clientes { get; set; }
+        public virtual productos productos { get; set; }
     }
 }

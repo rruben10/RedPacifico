@@ -17,7 +17,7 @@ namespace RedPacifico.Modelo
             try
             {
                 //Se hace conexion a la bd
-                using (sistemaEntities1 db = new sistemaEntities1())
+                using (sistemaEntities2 db = new sistemaEntities2())
                 {
                     //Se hace una lista de la consulta completa de la tabla clientes
                     var listaSqlCliente = db.productos.ToList();

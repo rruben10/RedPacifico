@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="ubigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="apellidoPaterno" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="apellidoMaterno" Type="varchar" MaxLength="100" Nullable="false" />
@@ -23,15 +23,59 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="ubigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="precio" Type="int" Nullable="false" />
     <Property Name="existencia" Type="smallint" Nullable="false" />
   </EntityType>
+  <EntityType Name="ventas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="bigint" />
+    <Property Name="producto" Type="bigint" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="precio" Type="int" Nullable="false" />
+    <Property Name="importe" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ventas_ibfk_1">
+    <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clientes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ventas_ibfk_2">
+    <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="sistemaModelStoreContainer">
     <EntitySet Name="clientes" EntityType="Self.clientes" Schema="sistema" store:Type="Tables" />
     <EntitySet Name="configuracion" EntityType="Self.configuracion" Schema="sistema" store:Type="Tables" />
     <EntitySet Name="productos" EntityType="Self.productos" Schema="sistema" store:Type="Tables" />
+    <EntitySet Name="ventas" EntityType="Self.ventas" Schema="sistema" store:Type="Tables" />
+    <AssociationSet Name="ventas_ibfk_1" Association="Self.ventas_ibfk_1">
+      <End Role="clientes" EntitySet="clientes" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+    <AssociationSet Name="ventas_ibfk_2" Association="Self.ventas_ibfk_2">
+      <End Role="productos" EntitySet="productos" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

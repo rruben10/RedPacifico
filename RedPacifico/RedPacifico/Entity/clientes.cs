@@ -14,10 +14,19 @@ namespace RedPacifico.Entity
     
     public partial class clientes
     {
-        public decimal id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public clientes()
+        {
+            this.ventas = new HashSet<ventas>();
+        }
+    
+        public long id { get; set; }
         public string nombre { get; set; }
         public string apellidoPaterno { get; set; }
         public string apellidoMaterno { get; set; }
         public string RFC { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ventas> ventas { get; set; }
     }
 }

@@ -88,3 +88,4 @@ C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifi
 C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\obj\Debug\RedPacifico.csproj.CopyComplete
 C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\obj\Debug\RedPacifico.exe
 C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\obj\Debug\RedPacifico.pdb
+C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\obj\Debug\RedPacifico.Vista.Form_CatalogoVentas.resources

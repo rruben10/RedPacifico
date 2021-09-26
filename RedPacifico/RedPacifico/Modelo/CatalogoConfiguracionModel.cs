@@ -15,7 +15,7 @@ namespace RedPacifico.Modelo
             Configuracion conf = new Configuracion();
             try
             {
-                using(sistemaEntities1 db = new sistemaEntities1())
+                using(sistemaEntities2 db = new sistemaEntities2())
                 {
                     var configuracion = db.configuracion.ToList();
 
@@ -45,7 +45,7 @@ namespace RedPacifico.Modelo
                 porcentajeEnganche = float.Parse(String.Format("{0:0.00}", porcentajeEnganche));
                 if (idConfig == 0)
                 {
-                    using (sistemaEntities1 db = new sistemaEntities1())
+                    using (sistemaEntities2 db = new sistemaEntities2())
                     {
                         configuracion oConfig = new configuracion
                         {
@@ -62,7 +62,7 @@ namespace RedPacifico.Modelo
                 }
                 else
                 {
-                    using (sistemaEntities1 db = new sistemaEntities1())
+                    using (sistemaEntities2 db = new sistemaEntities2())
                     {
                         var config = db.configuracion.Find(idConfig);
 

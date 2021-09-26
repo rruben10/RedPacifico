@@ -111,7 +111,7 @@ namespace RedPacifico
                 {
                     MessageBox.Show("Se actualizaron los datos correctamente.");
                     this.Close();
-                    Form_catalogoClientes catalogo = new Form_catalogoClientes();
+                    Form_CatalogoClientes catalogo = new Form_CatalogoClientes();
                     catalogo.ShowDialog();
                 }
             }
@@ -176,7 +176,7 @@ namespace RedPacifico
 
                 this.Close();
 
-                Form_catalogoClientes formCatalogoClientes = new Form_catalogoClientes();
+                Form_CatalogoClientes formCatalogoClientes = new Form_CatalogoClientes();
                 formCatalogoClientes.ShowDialog();
             }
         }

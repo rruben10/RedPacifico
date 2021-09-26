@@ -14,13 +14,13 @@ using System.Windows.Forms;
 
 namespace RedPacifico
 {
-    public partial class Form_catalogoClientes : Form, ICatalogoClienteController
+    public partial class Form_CatalogoClientes : Form, ICatalogoClienteController
     {
         //Conexion a la antigua
         MySqlConnection conexion = Conexion.obtenerConexion();
 
         private Controlador.CatalogoClienteController _controlador;
-        public Form_catalogoClientes()
+        public Form_CatalogoClientes()
         {
             InitializeComponent();
             _controlador = new Controlador.CatalogoClienteController(this);

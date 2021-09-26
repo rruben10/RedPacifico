@@ -1,4 +1,5 @@
 ﻿using RedPacifico.MySql;
+using RedPacifico.Vista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,13 +21,13 @@ namespace RedPacifico
 
         private void boton_ventas_Click(object sender, EventArgs e)
         {
-            Form_opcionVentas ventas = new Form_opcionVentas();
+            Form_CatalogoVentas ventas = new Form_CatalogoVentas();
             ventas.ShowDialog();
         }
 
         private void boton_clientes_Click(object sender, EventArgs e)
         {
-            Form_catalogoClientes clientes = new Form_catalogoClientes();
+            Form_CatalogoClientes clientes = new Form_CatalogoClientes();
             clientes.ShowDialog();
         }
 

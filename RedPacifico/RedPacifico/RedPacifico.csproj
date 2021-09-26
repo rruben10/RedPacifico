@@ -106,11 +106,13 @@
     <Compile Include="Controlador\CatalogoClienteController.cs" />
     <Compile Include="Controlador\CatalogoConfiguracionController.cs" />
     <Compile Include="Controlador\CatalogoProductoController.cs" />
+    <Compile Include="Controlador\CatalogoVentaController.cs" />
     <Compile Include="Controlador\DetalleClienteController.cs" />
     <Compile Include="Controlador\DetalleProductoController.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Configuracion.cs" />
     <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Entidades\Venta.cs" />
     <Compile Include="Entity\clientes.cs">
       <DependentUpon>SistemaEntity.tt</DependentUpon>
     </Compile>
@@ -135,14 +137,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SistemaEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\ventas.cs">
+      <DependentUpon>SistemaEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interface\ICatalogoClienteController.cs" />
     <Compile Include="Interface\ICatalogoConfiguracionController.cs" />
     <Compile Include="Interface\ICatalogoProductoController.cs" />
+    <Compile Include="Interface\ICatalogoVentaController.cs" />
     <Compile Include="Interface\IDetalleClienteController.cs" />
     <Compile Include="Interface\IDetalleProductoController.cs" />
     <Compile Include="Modelo\CatalogoClienteModel.cs" />
     <Compile Include="Modelo\CatalogoConfiguracionModel.cs" />
     <Compile Include="Modelo\CatalogoProductoModel.cs" />
+    <Compile Include="Modelo\CatalogoVentaModel.cs" />
     <Compile Include="Modelo\DetalleClienteModel.cs" />
     <Compile Include="Modelo\DetalleProductoModel.cs" />
     <Compile Include="Vista\CatalogoClientes.cs">
@@ -163,6 +170,12 @@
     </Compile>
     <Compile Include="Vista\CatalogoProductos.Designer.cs">
       <DependentUpon>CatalogoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\CatalogoVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\CatalogoVentas.Designer.cs">
+      <DependentUpon>CatalogoVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\DetalleCliente.cs">
       <SubType>Form</SubType>
@@ -199,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\CatalogoProductos.resx">
       <DependentUpon>CatalogoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\CatalogoVentas.resx">
+      <DependentUpon>CatalogoVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\DetalleCliente.resx">
       <DependentUpon>DetalleCliente.cs</DependentUpon>
@@ -246,6 +262,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Entity\SistemaEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SistemaEntity.edmx</DependentUpon>
@@ -256,9 +275,6 @@
       <DependentUpon>SistemaEntity.edmx</DependentUpon>
       <LastGenOutput>SistemaEntity.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

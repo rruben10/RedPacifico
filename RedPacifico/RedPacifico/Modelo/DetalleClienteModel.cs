@@ -16,7 +16,7 @@ namespace RedPacifico.Modelo
             int grabado = 0;
             try
             {
-                using (sistemaEntities1 db = new sistemaEntities1())
+                using (sistemaEntities2 db = new sistemaEntities2())
                 {
                     clientes oCliente = new clientes
                     {
@@ -46,7 +46,7 @@ namespace RedPacifico.Modelo
             Cliente obCliente = new Cliente();
             try
             {
-                using (sistemaEntities1 db = new sistemaEntities1())
+                using (sistemaEntities2 db = new sistemaEntities2())
                 {
                     var cliente = db.clientes.Find(idCliente);
 
@@ -72,7 +72,7 @@ namespace RedPacifico.Modelo
             bool actualizoCliente = false;
             try
             {
-                using (sistemaEntities1 db = new sistemaEntities1())
+                using (sistemaEntities2 db = new sistemaEntities2())
                 {
                     var cliente = db.clientes.Find(idCliente);
 

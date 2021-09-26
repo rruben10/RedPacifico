@@ -4,10 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="14bc0bdc9e7d4de289d87c2c6a866ade" Name="Diagram1">
-        <EntityTypeShape EntityType="sistemaModel.clientes" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sistemaModel.configuracion" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sistemaModel.productos" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="755848fa78c146c68c14d0f8230e10f9" Name="Diagram1">
+        <EntityTypeShape EntityType="sistemaModel.clientes" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistemaModel.configuracion" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistemaModel.productos" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistemaModel.ventas" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="sistemaModel.ventas_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="sistemaModel.ventas_ibfk_2" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
