@@ -29,6 +29,7 @@ namespace RedPacifico
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.lblidProducto = new System.Windows.Forms.Label();
             this.btnDetalleGuardar = new System.Windows.Forms.Button();
@@ -41,6 +42,8 @@ namespace RedPacifico
             this.lblProductoModelo = new System.Windows.Forms.Label();
             this.txtProductoDes = new System.Windows.Forms.TextBox();
             this.lblProductoDes = new System.Windows.Forms.Label();
+            this.errorCampoValido = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorCampoValido)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIdProducto
@@ -69,6 +72,7 @@ namespace RedPacifico
             this.btnDetalleGuardar.TabIndex = 21;
             this.btnDetalleGuardar.Text = "Guardar";
             this.btnDetalleGuardar.UseVisualStyleBackColor = true;
+            this.btnDetalleGuardar.Click += new System.EventHandler(this.btnDetalleGuardar_Click);
             // 
             // btnDetalleCancelar
             // 
@@ -144,6 +148,10 @@ namespace RedPacifico
             this.lblProductoDes.TabIndex = 12;
             this.lblProductoDes.Text = "Descripción";
             // 
+            // errorCampoValido
+            // 
+            this.errorCampoValido.ContainerControl = this;
+            // 
             // Form_detalleProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +171,7 @@ namespace RedPacifico
             this.Controls.Add(this.lblProductoDes);
             this.Name = "Form_detalleProducto";
             this.Text = "Detalle Producto";
+            ((System.ComponentModel.ISupportInitialize)(this.errorCampoValido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +191,6 @@ namespace RedPacifico
         private System.Windows.Forms.Label lblProductoModelo;
         private System.Windows.Forms.TextBox txtProductoDes;
         private System.Windows.Forms.Label lblProductoDes;
+        private System.Windows.Forms.ErrorProvider errorCampoValido;
     }
 }

@@ -104,10 +104,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\CatalogoClienteController.cs" />
+    <Compile Include="Controlador\CatalogoConfiguracionController.cs" />
     <Compile Include="Controlador\CatalogoProductoController.cs" />
     <Compile Include="Controlador\DetalleClienteController.cs" />
     <Compile Include="Controlador\DetalleProductoController.cs" />
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Configuracion.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entity\clientes.cs">
       <DependentUpon>SistemaEntity.tt</DependentUpon>
@@ -134,10 +136,12 @@
       <DependentUpon>SistemaEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Interface\ICatalogoClienteController.cs" />
+    <Compile Include="Interface\ICatalogoConfiguracionController.cs" />
     <Compile Include="Interface\ICatalogoProductoController.cs" />
     <Compile Include="Interface\IDetalleClienteController.cs" />
     <Compile Include="Interface\IDetalleProductoController.cs" />
     <Compile Include="Modelo\CatalogoClienteModel.cs" />
+    <Compile Include="Modelo\CatalogoConfiguracionModel.cs" />
     <Compile Include="Modelo\CatalogoProductoModel.cs" />
     <Compile Include="Modelo\DetalleClienteModel.cs" />
     <Compile Include="Modelo\DetalleProductoModel.cs" />

@@ -23,7 +23,12 @@ namespace RedPacifico
 
         public Form_detalleProducto(int idProducto)
         {
+            InitializeComponent();
+            _controlador = new Controlador.DetalleProductoController(this);
 
+            _controlador.ConsultaProducto(idProducto);
+
+            this.btnDetalleGuardar.Text = "Actualizar";
         }
 
         public int IdProducto { get => int.Parse(txtIdProducto.Text); set => IdProducto = value; }
@@ -32,14 +37,89 @@ namespace RedPacifico
         public int PrecioProducto { get => int.Parse(txtProductoPrecio.Text); set => PrecioProducto = value; }
         public int ExistenciaProducto { get => int.Parse(txtProductoExistencia.Text); set => ExistenciaProducto = value; }
 
-        public void ConsultaProducto(Producto objProducto)
+        void IDetalleProductoController.ConsultaProducto(Producto objProducto)
         {
-            throw new NotImplementedException();
+            txtIdProducto.Text = objProducto.IdProducto.ToString();
+            txtProductoDes.Text = objProducto.Descripcion;
+            txtProductoModelo.Text = objProducto.Modelo;
+            txtProductoPrecio.Text = objProducto.Precio.ToString();
+            txtProductoExistencia.Text = objProducto.Existencia.ToString();
         }
 
         public void GuardarRegistro(int grabado)
         {
-            throw new NotImplementedException();
+            if (grabado == 1)
+            {
+                MessageBox.Show("El Producto ha sido registrado correctamente");
+
+                this.Close();
+
+                Form_catalogoProductos formCatalogoProductos = new Form_catalogoProductos();
+                formCatalogoProductos.ShowDialog();
+            }
+        }
+
+        private void btnDetalleGuardar_Click(object sender, EventArgs e)
+        {
+            string mensaje = ValidarDatosCapturados();
+            if (mensaje != "")
+            {
+                MessageBox.Show(mensaje);
+            }
+            else if (this.btnDetalleGuardar.Text == "Actualizar")
+            {
+                if (_controlador.ActualizarDatosProducto())
+                {
+                    MessageBox.Show("Se actualizaron los datos correctamente.");
+                    this.Close();
+                    Form_catalogoProductos catalogo = new Form_catalogoProductos();
+                    catalogo.ShowDialog();
+                }
+            }
+            else
+            {
+                _controlador.GuardarProducto();
+            }
+        }
+        string ValidarDatosCapturados()
+        {
+            inicializarErrorProviderCampos();
+
+            string MensajeCamposInvalidos = string.Empty;
+
+            if (txtProductoDes.Text == "")
+            {
+                errorCampoValido.SetError(txtProductoDes, "Ingresar Descripcion");
+                MensajeCamposInvalidos = string.Format("Favor de ingresar {0} es obligatorio", lblProductoDes.Text);
+                return MensajeCamposInvalidos;
+            }
+            if (txtProductoModelo.Text == "")
+            {
+                errorCampoValido.SetError(txtProductoModelo, "Ingresar Modelo");
+                MensajeCamposInvalidos = string.Format("Favor de ingresar {0} es obligatorio", lblProductoModelo.Text);
+                return MensajeCamposInvalidos;
+            }
+            if (txtProductoPrecio.Text == "")
+            {
+                errorCampoValido.SetError(txtProductoPrecio, "Ingresar Precio");
+                MensajeCamposInvalidos = string.Format("Favor de ingresar {0} es obligatorio", lblProductoPrecio.Text);
+                return MensajeCamposInvalidos;
+            }
+            if (txtProductoExistencia.Text == "")
+            {
+                errorCampoValido.SetError(txtProductoExistencia, "Ingresar Existencia");
+                MensajeCamposInvalidos = string.Format("Favor de ingresar {0} es obligatorio", lblProductoExistencia.Text);
+                return MensajeCamposInvalidos;
+            }
+
+            return MensajeCamposInvalidos;
+        }
+        private void inicializarErrorProviderCampos()
+        {
+            errorCampoValido.SetError(txtProductoDes, "");
+            errorCampoValido.SetError(txtProductoModelo, "");
+            errorCampoValido.SetError(txtProductoPrecio, "");
+            errorCampoValido.SetError(txtProductoExistencia, "");
         }
     }
 }
