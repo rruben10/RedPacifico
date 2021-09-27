@@ -48,27 +48,30 @@ namespace RedPacifico
             // 
             // txtIdProducto
             // 
-            this.txtIdProducto.Location = new System.Drawing.Point(347, 94);
+            this.txtIdProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProducto.Location = new System.Drawing.Point(642, 289);
             this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.Size = new System.Drawing.Size(100, 20);
+            this.txtIdProducto.Size = new System.Drawing.Size(194, 29);
             this.txtIdProducto.TabIndex = 23;
             this.txtIdProducto.Visible = false;
             // 
             // lblidProducto
             // 
             this.lblidProducto.AutoSize = true;
-            this.lblidProducto.Location = new System.Drawing.Point(290, 97);
+            this.lblidProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidProducto.Location = new System.Drawing.Point(540, 292);
             this.lblidProducto.Name = "lblidProducto";
-            this.lblidProducto.Size = new System.Drawing.Size(50, 13);
+            this.lblidProducto.Size = new System.Drawing.Size(86, 24);
             this.lblidProducto.TabIndex = 22;
             this.lblidProducto.Text = "Producto";
             this.lblidProducto.Visible = false;
             // 
             // btnDetalleGuardar
             // 
-            this.btnDetalleGuardar.Location = new System.Drawing.Point(478, 333);
+            this.btnDetalleGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalleGuardar.Location = new System.Drawing.Point(696, 515);
             this.btnDetalleGuardar.Name = "btnDetalleGuardar";
-            this.btnDetalleGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalleGuardar.Size = new System.Drawing.Size(140, 53);
             this.btnDetalleGuardar.TabIndex = 21;
             this.btnDetalleGuardar.Text = "Guardar";
             this.btnDetalleGuardar.UseVisualStyleBackColor = true;
@@ -76,75 +79,87 @@ namespace RedPacifico
             // 
             // btnDetalleCancelar
             // 
-            this.btnDetalleCancelar.Location = new System.Drawing.Point(387, 333);
+            this.btnDetalleCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalleCancelar.Location = new System.Drawing.Point(486, 515);
             this.btnDetalleCancelar.Name = "btnDetalleCancelar";
-            this.btnDetalleCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalleCancelar.Size = new System.Drawing.Size(140, 53);
             this.btnDetalleCancelar.TabIndex = 20;
             this.btnDetalleCancelar.Text = "Cancelar";
             this.btnDetalleCancelar.UseVisualStyleBackColor = true;
             // 
             // txtProductoExistencia
             // 
-            this.txtProductoExistencia.Location = new System.Drawing.Point(347, 199);
+            this.txtProductoExistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductoExistencia.Location = new System.Drawing.Point(642, 429);
             this.txtProductoExistencia.Name = "txtProductoExistencia";
-            this.txtProductoExistencia.Size = new System.Drawing.Size(100, 20);
-            this.txtProductoExistencia.TabIndex = 19;
+            this.txtProductoExistencia.Size = new System.Drawing.Size(194, 29);
+            this.txtProductoExistencia.TabIndex = 3;
+            this.txtProductoExistencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoExistencia_KeyPress);
             // 
             // lblProductoExistencia
             // 
             this.lblProductoExistencia.AutoSize = true;
-            this.lblProductoExistencia.Location = new System.Drawing.Point(280, 202);
+            this.lblProductoExistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductoExistencia.Location = new System.Drawing.Point(530, 432);
             this.lblProductoExistencia.Name = "lblProductoExistencia";
-            this.lblProductoExistencia.Size = new System.Drawing.Size(55, 13);
+            this.lblProductoExistencia.Size = new System.Drawing.Size(96, 24);
             this.lblProductoExistencia.TabIndex = 18;
             this.lblProductoExistencia.Text = "Existencia";
             // 
             // txtProductoPrecio
             // 
-            this.txtProductoPrecio.Location = new System.Drawing.Point(347, 173);
+            this.txtProductoPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductoPrecio.Location = new System.Drawing.Point(642, 394);
             this.txtProductoPrecio.Name = "txtProductoPrecio";
-            this.txtProductoPrecio.Size = new System.Drawing.Size(100, 20);
-            this.txtProductoPrecio.TabIndex = 17;
+            this.txtProductoPrecio.Size = new System.Drawing.Size(194, 29);
+            this.txtProductoPrecio.TabIndex = 2;
+            this.txtProductoPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoPrecio_KeyPress);
             // 
             // lblProductoPrecio
             // 
             this.lblProductoPrecio.AutoSize = true;
-            this.lblProductoPrecio.Location = new System.Drawing.Point(298, 176);
+            this.lblProductoPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductoPrecio.Location = new System.Drawing.Point(562, 397);
             this.lblProductoPrecio.Name = "lblProductoPrecio";
-            this.lblProductoPrecio.Size = new System.Drawing.Size(37, 13);
+            this.lblProductoPrecio.Size = new System.Drawing.Size(64, 24);
             this.lblProductoPrecio.TabIndex = 16;
             this.lblProductoPrecio.Text = "Precio";
             // 
             // txtProductoModelo
             // 
-            this.txtProductoModelo.Location = new System.Drawing.Point(347, 147);
+            this.txtProductoModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductoModelo.Location = new System.Drawing.Point(642, 359);
             this.txtProductoModelo.Name = "txtProductoModelo";
-            this.txtProductoModelo.Size = new System.Drawing.Size(100, 20);
-            this.txtProductoModelo.TabIndex = 15;
+            this.txtProductoModelo.Size = new System.Drawing.Size(194, 29);
+            this.txtProductoModelo.TabIndex = 1;
             // 
             // lblProductoModelo
             // 
             this.lblProductoModelo.AutoSize = true;
-            this.lblProductoModelo.Location = new System.Drawing.Point(298, 150);
+            this.lblProductoModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductoModelo.Location = new System.Drawing.Point(552, 362);
             this.lblProductoModelo.Name = "lblProductoModelo";
-            this.lblProductoModelo.Size = new System.Drawing.Size(42, 13);
+            this.lblProductoModelo.Size = new System.Drawing.Size(74, 24);
             this.lblProductoModelo.TabIndex = 14;
             this.lblProductoModelo.Text = "Modelo";
             // 
             // txtProductoDes
             // 
-            this.txtProductoDes.Location = new System.Drawing.Point(347, 121);
+            this.txtProductoDes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductoDes.Location = new System.Drawing.Point(642, 324);
             this.txtProductoDes.MaxLength = 100;
             this.txtProductoDes.Name = "txtProductoDes";
-            this.txtProductoDes.Size = new System.Drawing.Size(100, 20);
-            this.txtProductoDes.TabIndex = 13;
+            this.txtProductoDes.Size = new System.Drawing.Size(194, 29);
+            this.txtProductoDes.TabIndex = 0;
+            this.txtProductoDes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductoDes_KeyPress);
             // 
             // lblProductoDes
             // 
             this.lblProductoDes.AutoSize = true;
-            this.lblProductoDes.Location = new System.Drawing.Point(278, 124);
+            this.lblProductoDes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductoDes.Location = new System.Drawing.Point(516, 327);
             this.lblProductoDes.Name = "lblProductoDes";
-            this.lblProductoDes.Size = new System.Drawing.Size(63, 13);
+            this.lblProductoDes.Size = new System.Drawing.Size(110, 24);
             this.lblProductoDes.TabIndex = 12;
             this.lblProductoDes.Text = "Descripción";
             // 
@@ -156,7 +171,7 @@ namespace RedPacifico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1410, 737);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.lblidProducto);
             this.Controls.Add(this.btnDetalleGuardar);
@@ -169,8 +184,11 @@ namespace RedPacifico
             this.Controls.Add(this.lblProductoModelo);
             this.Controls.Add(this.txtProductoDes);
             this.Controls.Add(this.lblProductoDes);
+            this.KeyPreview = true;
             this.Name = "Form_detalleProducto";
             this.Text = "Detalle Producto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_detalleProducto_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.errorCampoValido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

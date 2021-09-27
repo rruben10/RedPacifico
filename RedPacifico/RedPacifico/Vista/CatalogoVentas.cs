@@ -30,7 +30,7 @@ namespace RedPacifico.Vista
 
                 foreach (Venta ventas in listVentas)
                 {
-                    gridCatalogoVentas.Rows.Add(ventas.IdVenta, ventas.Cliente, ventas.Producto, ventas.DescProduc, ventas.ModeloProduc, ventas.Cantidad, ventas.Precio, ventas.Importe);
+                    gridCatalogoVentas.Rows.Add(ventas.IdVenta, ventas.Cliente, ventas.Producto, ventas.DescProduc, ventas.ModeloProduc, ventas.Enganche, ventas.BonificacionEnganche, ventas.Total);
                 }
 
             }
@@ -49,6 +49,18 @@ namespace RedPacifico.Vista
         {
             Form_opcionVentas NuevaVenta = new Form_opcionVentas();
             NuevaVenta.ShowDialog();
+        }
+
+        private void Form_CatalogoVentas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult cerrarDialogo = MessageBox.Show("Desea salir de la pantalla actual?", "Salir", MessageBoxButtons.YesNo);
+                if (cerrarDialogo == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }

@@ -49,73 +49,82 @@ namespace RedPacifico
             // lblDetalleNombre
             // 
             this.lblDetalleNombre.AutoSize = true;
-            this.lblDetalleNombre.Location = new System.Drawing.Point(184, 101);
+            this.lblDetalleNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalleNombre.Location = new System.Drawing.Point(485, 206);
             this.lblDetalleNombre.Name = "lblDetalleNombre";
-            this.lblDetalleNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblDetalleNombre.Size = new System.Drawing.Size(79, 24);
             this.lblDetalleNombre.TabIndex = 0;
             this.lblDetalleNombre.Text = "Nombre";
             // 
             // txtDetalleNombre
             // 
-            this.txtDetalleNombre.Location = new System.Drawing.Point(241, 98);
+            this.txtDetalleNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleNombre.Location = new System.Drawing.Point(570, 203);
             this.txtDetalleNombre.MaxLength = 100;
             this.txtDetalleNombre.Name = "txtDetalleNombre";
-            this.txtDetalleNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtDetalleNombre.Size = new System.Drawing.Size(320, 29);
             this.txtDetalleNombre.TabIndex = 1;
             // 
             // txtDetallePaterno
             // 
-            this.txtDetallePaterno.Location = new System.Drawing.Point(241, 124);
+            this.txtDetallePaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetallePaterno.Location = new System.Drawing.Point(570, 238);
             this.txtDetallePaterno.Name = "txtDetallePaterno";
-            this.txtDetallePaterno.Size = new System.Drawing.Size(100, 20);
+            this.txtDetallePaterno.Size = new System.Drawing.Size(320, 29);
             this.txtDetallePaterno.TabIndex = 3;
             // 
             // lblDetallePaterno
             // 
             this.lblDetallePaterno.AutoSize = true;
-            this.lblDetallePaterno.Location = new System.Drawing.Point(144, 127);
+            this.lblDetallePaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetallePaterno.Location = new System.Drawing.Point(412, 241);
             this.lblDetallePaterno.Name = "lblDetallePaterno";
-            this.lblDetallePaterno.Size = new System.Drawing.Size(84, 13);
+            this.lblDetallePaterno.Size = new System.Drawing.Size(149, 24);
             this.lblDetallePaterno.TabIndex = 2;
             this.lblDetallePaterno.Text = "Apellido Paterno";
             // 
             // txtDetalleMaterno
             // 
-            this.txtDetalleMaterno.Location = new System.Drawing.Point(241, 150);
+            this.txtDetalleMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleMaterno.Location = new System.Drawing.Point(570, 273);
             this.txtDetalleMaterno.Name = "txtDetalleMaterno";
-            this.txtDetalleMaterno.Size = new System.Drawing.Size(100, 20);
+            this.txtDetalleMaterno.Size = new System.Drawing.Size(320, 29);
             this.txtDetalleMaterno.TabIndex = 5;
             // 
             // lblDetalleMaterno
             // 
             this.lblDetalleMaterno.AutoSize = true;
-            this.lblDetalleMaterno.Location = new System.Drawing.Point(142, 153);
+            this.lblDetalleMaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalleMaterno.Location = new System.Drawing.Point(411, 276);
             this.lblDetalleMaterno.Name = "lblDetalleMaterno";
-            this.lblDetalleMaterno.Size = new System.Drawing.Size(86, 13);
+            this.lblDetalleMaterno.Size = new System.Drawing.Size(153, 24);
             this.lblDetalleMaterno.TabIndex = 4;
             this.lblDetalleMaterno.Text = "Apellido Materno";
             // 
             // txtDetalleRFC
             // 
-            this.txtDetalleRFC.Location = new System.Drawing.Point(241, 176);
+            this.txtDetalleRFC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalleRFC.Location = new System.Drawing.Point(570, 308);
             this.txtDetalleRFC.Name = "txtDetalleRFC";
-            this.txtDetalleRFC.Size = new System.Drawing.Size(100, 20);
+            this.txtDetalleRFC.Size = new System.Drawing.Size(320, 29);
             this.txtDetalleRFC.TabIndex = 7;
             // 
             // lblRFC
             // 
             this.lblRFC.AutoSize = true;
-            this.lblRFC.Location = new System.Drawing.Point(200, 179);
+            this.lblRFC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRFC.Location = new System.Drawing.Point(513, 311);
             this.lblRFC.Name = "lblRFC";
-            this.lblRFC.Size = new System.Drawing.Size(28, 13);
+            this.lblRFC.Size = new System.Drawing.Size(48, 24);
             this.lblRFC.TabIndex = 6;
             this.lblRFC.Text = "RFC";
             // 
             // btnDetalleCancelar
             // 
-            this.btnDetalleCancelar.Location = new System.Drawing.Point(281, 310);
+            this.btnDetalleCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalleCancelar.Location = new System.Drawing.Point(617, 377);
             this.btnDetalleCancelar.Name = "btnDetalleCancelar";
-            this.btnDetalleCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalleCancelar.Size = new System.Drawing.Size(107, 38);
             this.btnDetalleCancelar.TabIndex = 8;
             this.btnDetalleCancelar.Text = "Cancelar";
             this.btnDetalleCancelar.UseVisualStyleBackColor = true;
@@ -123,9 +132,10 @@ namespace RedPacifico
             // 
             // btnDetalleGuardar
             // 
-            this.btnDetalleGuardar.Location = new System.Drawing.Point(372, 310);
+            this.btnDetalleGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalleGuardar.Location = new System.Drawing.Point(783, 376);
             this.btnDetalleGuardar.Name = "btnDetalleGuardar";
-            this.btnDetalleGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalleGuardar.Size = new System.Drawing.Size(107, 40);
             this.btnDetalleGuardar.TabIndex = 9;
             this.btnDetalleGuardar.Text = "Guardar";
             this.btnDetalleGuardar.UseVisualStyleBackColor = true;
@@ -138,7 +148,7 @@ namespace RedPacifico
             // lblidCliente
             // 
             this.lblidCliente.AutoSize = true;
-            this.lblidCliente.Location = new System.Drawing.Point(193, 71);
+            this.lblidCliente.Location = new System.Drawing.Point(522, 165);
             this.lblidCliente.Name = "lblidCliente";
             this.lblidCliente.Size = new System.Drawing.Size(39, 13);
             this.lblidCliente.TabIndex = 10;
@@ -147,7 +157,7 @@ namespace RedPacifico
             // 
             // txtIdCliente
             // 
-            this.txtIdCliente.Location = new System.Drawing.Point(241, 71);
+            this.txtIdCliente.Location = new System.Drawing.Point(570, 165);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
             this.txtIdCliente.TabIndex = 11;
@@ -157,7 +167,7 @@ namespace RedPacifico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1373, 737);
             this.Controls.Add(this.txtIdCliente);
             this.Controls.Add(this.lblidCliente);
             this.Controls.Add(this.btnDetalleGuardar);
@@ -170,8 +180,11 @@ namespace RedPacifico
             this.Controls.Add(this.lblDetallePaterno);
             this.Controls.Add(this.txtDetalleNombre);
             this.Controls.Add(this.lblDetalleNombre);
+            this.KeyPreview = true;
             this.Name = "Form_detalleCliente";
             this.Text = "Datos Cliente";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_detalleCliente_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.errorCampoValido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -36,9 +36,9 @@
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cliente" Type="bigint" />
     <Property Name="producto" Type="bigint" />
-    <Property Name="cantidad" Type="int" Nullable="false" />
-    <Property Name="precio" Type="int" Nullable="false" />
-    <Property Name="importe" Type="int" Nullable="false" />
+    <Property Name="enganche" Type="int" Nullable="false" />
+    <Property Name="bonificacionEnganche" Type="int" Nullable="false" />
+    <Property Name="total" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="ventas_ibfk_1">
     <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />

@@ -36,14 +36,16 @@ namespace RedPacifico.Vista
             this.ColumProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumDescProduc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumEnganche = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumBonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridCatalogoVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // gridCatalogoVentas
             // 
+            this.gridCatalogoVentas.AllowUserToAddRows = false;
+            this.gridCatalogoVentas.AllowUserToDeleteRows = false;
             this.gridCatalogoVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCatalogoVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumVenta,
@@ -51,19 +53,21 @@ namespace RedPacifico.Vista
             this.ColumProducto,
             this.ColumDescProduc,
             this.ColumModelo,
-            this.ColumCantidad,
-            this.ColumPrecio,
-            this.ColumImporte});
-            this.gridCatalogoVentas.Location = new System.Drawing.Point(12, 141);
+            this.ColumEnganche,
+            this.ColumBonificacion,
+            this.ColumTotal});
+            this.gridCatalogoVentas.Location = new System.Drawing.Point(136, 448);
             this.gridCatalogoVentas.Name = "gridCatalogoVentas";
-            this.gridCatalogoVentas.Size = new System.Drawing.Size(776, 297);
+            this.gridCatalogoVentas.ReadOnly = true;
+            this.gridCatalogoVentas.Size = new System.Drawing.Size(1157, 308);
             this.gridCatalogoVentas.TabIndex = 0;
             // 
             // btnNuevaVenta
             // 
-            this.btnNuevaVenta.Location = new System.Drawing.Point(597, 66);
+            this.btnNuevaVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaVenta.Location = new System.Drawing.Point(1125, 357);
             this.btnNuevaVenta.Name = "btnNuevaVenta";
-            this.btnNuevaVenta.Size = new System.Drawing.Size(121, 40);
+            this.btnNuevaVenta.Size = new System.Drawing.Size(168, 63);
             this.btnNuevaVenta.TabIndex = 1;
             this.btnNuevaVenta.Text = "Nueva Venta";
             this.btnNuevaVenta.UseVisualStyleBackColor = true;
@@ -106,33 +110,36 @@ namespace RedPacifico.Vista
             this.ColumModelo.Name = "ColumModelo";
             this.ColumModelo.ReadOnly = true;
             // 
-            // ColumCantidad
+            // ColumEnganche
             // 
-            this.ColumCantidad.HeaderText = "Cantidad";
-            this.ColumCantidad.Name = "ColumCantidad";
-            this.ColumCantidad.ReadOnly = true;
+            this.ColumEnganche.HeaderText = "Enganche";
+            this.ColumEnganche.Name = "ColumEnganche";
+            this.ColumEnganche.ReadOnly = true;
             // 
-            // ColumPrecio
+            // ColumBonificacion
             // 
-            this.ColumPrecio.HeaderText = "Precio";
-            this.ColumPrecio.Name = "ColumPrecio";
-            this.ColumPrecio.ReadOnly = true;
+            this.ColumBonificacion.HeaderText = "Bonificacion";
+            this.ColumBonificacion.Name = "ColumBonificacion";
+            this.ColumBonificacion.ReadOnly = true;
             // 
-            // ColumImporte
+            // ColumTotal
             // 
-            this.ColumImporte.HeaderText = "Importe";
-            this.ColumImporte.Name = "ColumImporte";
-            this.ColumImporte.ReadOnly = true;
+            this.ColumTotal.HeaderText = "Total";
+            this.ColumTotal.Name = "ColumTotal";
+            this.ColumTotal.ReadOnly = true;
             // 
             // Form_CatalogoVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1424, 836);
             this.Controls.Add(this.btnNuevaVenta);
             this.Controls.Add(this.gridCatalogoVentas);
+            this.KeyPreview = true;
             this.Name = "Form_CatalogoVentas";
             this.Text = "Catalogo Ventas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_CatalogoVentas_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gridCatalogoVentas)).EndInit();
             this.ResumeLayout(false);
 
@@ -147,8 +154,8 @@ namespace RedPacifico.Vista
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumDescProduc;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumModelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumImporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumEnganche;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumBonificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumTotal;
     }
 }

@@ -48,5 +48,17 @@ namespace RedPacifico
             Conexion.obtenerConexion();
             MessageBox.Show("Se conecto");
         }
+
+        private void Form_sistemaOpciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult cerrarDialogo = MessageBox.Show("Desea salir de la pantalla actual?", "Salir", MessageBoxButtons.YesNo);
+                if (cerrarDialogo == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
     }
 }

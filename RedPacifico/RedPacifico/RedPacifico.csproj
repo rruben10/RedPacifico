@@ -109,6 +109,7 @@
     <Compile Include="Controlador\CatalogoVentaController.cs" />
     <Compile Include="Controlador\DetalleClienteController.cs" />
     <Compile Include="Controlador\DetalleProductoController.cs" />
+    <Compile Include="Controlador\OpcionVentasController.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Configuracion.cs" />
     <Compile Include="Entidades\Producto.cs" />
@@ -146,12 +147,14 @@
     <Compile Include="Interface\ICatalogoVentaController.cs" />
     <Compile Include="Interface\IDetalleClienteController.cs" />
     <Compile Include="Interface\IDetalleProductoController.cs" />
+    <Compile Include="Interface\IOpcionVentasController.cs" />
     <Compile Include="Modelo\CatalogoClienteModel.cs" />
     <Compile Include="Modelo\CatalogoConfiguracionModel.cs" />
     <Compile Include="Modelo\CatalogoProductoModel.cs" />
     <Compile Include="Modelo\CatalogoVentaModel.cs" />
     <Compile Include="Modelo\DetalleClienteModel.cs" />
     <Compile Include="Modelo\DetalleProductoModel.cs" />
+    <Compile Include="Modelo\OpcionVentasModel.cs" />
     <Compile Include="Vista\CatalogoClientes.cs">
       <SubType>Form</SubType>
     </Compile>

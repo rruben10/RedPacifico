@@ -129,5 +129,17 @@ namespace RedPacifico
         {
             this.Close();
         }
+
+        private void Form_catalogoConfiguracion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult cerrarDialogo = MessageBox.Show("Desea salir de la pantalla actual?", "Salir", MessageBoxButtons.YesNo);
+                if (cerrarDialogo == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
     }
 }

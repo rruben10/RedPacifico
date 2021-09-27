@@ -35,9 +35,9 @@ namespace RedPacifico.Modelo
                             Producto = Convert.ToInt64(oVenta.producto),
                             DescProduc = detalleProducto.descripcion,
                             ModeloProduc = detalleProducto.modelo,
-                            Cantidad = oVenta.cantidad,
-                            Precio = oVenta.precio,
-                            Importe = oVenta.importe
+                            Enganche = oVenta.enganche,
+                            BonificacionEnganche = oVenta.bonificacionEnganche,
+                            Total = oVenta.total
                         };
 
                         listaVentas.Add(objVenta);

@@ -17,9 +17,9 @@ namespace RedPacifico.Entity
         public long id { get; set; }
         public Nullable<long> cliente { get; set; }
         public Nullable<long> producto { get; set; }
-        public int cantidad { get; set; }
-        public int precio { get; set; }
-        public int importe { get; set; }
+        public int enganche { get; set; }
+        public int bonificacionEnganche { get; set; }
+        public int total { get; set; }
     
         public virtual clientes clientes { get; set; }
         public virtual productos productos { get; set; }

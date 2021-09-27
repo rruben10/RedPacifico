@@ -121,5 +121,42 @@ namespace RedPacifico
             errorCampoValido.SetError(txtProductoPrecio, "");
             errorCampoValido.SetError(txtProductoExistencia, "");
         }
+
+        private void Form_detalleProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult cerrarDialogo = MessageBox.Show("Desea salir de la pantalla actual?", "Salir", MessageBoxButtons.YesNo);
+                if (cerrarDialogo == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+        private void validarCampoNumerico(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProductoPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarCampoNumerico(sender, e);
+        }
+
+        private void txtProductoExistencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarCampoNumerico(sender, e);
+        }
+
+        private void txtProductoDes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

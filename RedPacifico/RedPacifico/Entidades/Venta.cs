@@ -13,8 +13,8 @@ namespace RedPacifico.Entidades
         public long Producto { get; set; }
         public string DescProduc { get; set; }
         public string ModeloProduc { get; set; }
-        public int Cantidad { get; set; }
-        public int Precio { get; set; }
-        public int Importe { get; set; }
+        public int Enganche { get; set; }
+        public int BonificacionEnganche { get; set; }
+        public int Total { get; set; }
     }
 }

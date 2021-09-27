@@ -39,9 +39,10 @@ namespace RedPacifico
             // 
             // btnNuevoCliente
             // 
-            this.btnNuevoCliente.Location = new System.Drawing.Point(603, 70);
+            this.btnNuevoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoCliente.Location = new System.Drawing.Point(1017, 125);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(127, 37);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(163, 70);
             this.btnNuevoCliente.TabIndex = 0;
             this.btnNuevoCliente.Text = "Nuevo Cliente";
             this.btnNuevoCliente.UseVisualStyleBackColor = true;
@@ -59,10 +60,10 @@ namespace RedPacifico
             this.idCliente,
             this.nombre,
             this.columEditar});
-            this.gridCatalogoClientes.Location = new System.Drawing.Point(12, 152);
+            this.gridCatalogoClientes.Location = new System.Drawing.Point(175, 241);
             this.gridCatalogoClientes.Name = "gridCatalogoClientes";
             this.gridCatalogoClientes.ReadOnly = true;
-            this.gridCatalogoClientes.Size = new System.Drawing.Size(776, 286);
+            this.gridCatalogoClientes.Size = new System.Drawing.Size(1005, 413);
             this.gridCatalogoClientes.TabIndex = 1;
             this.gridCatalogoClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCatalogoClientes_CellContentClick);
             // 
@@ -92,11 +93,14 @@ namespace RedPacifico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1427, 833);
             this.Controls.Add(this.gridCatalogoClientes);
             this.Controls.Add(this.btnNuevoCliente);
+            this.KeyPreview = true;
             this.Name = "Form_CatalogoClientes";
             this.Text = "Catálogo Clientes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_CatalogoClientes_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gridCatalogoClientes)).EndInit();
             this.ResumeLayout(false);
 

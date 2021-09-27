@@ -38,11 +38,11 @@
     <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="cliente" Type="Int64" />
     <Property Name="producto" Type="Int64" />
-    <Property Name="cantidad" Type="Int32" Nullable="false" />
-    <Property Name="precio" Type="Int32" Nullable="false" />
-    <Property Name="importe" Type="Int32" Nullable="false" />
     <NavigationProperty Name="clientes" Relationship="Self.ventas_ibfk_1" FromRole="ventas" ToRole="clientes" />
     <NavigationProperty Name="productos" Relationship="Self.ventas_ibfk_2" FromRole="ventas" ToRole="productos" />
+    <Property Name="enganche" Type="Int32" Nullable="false" />
+    <Property Name="bonificacionEnganche" Type="Int32" Nullable="false" />
+    <Property Name="total" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="ventas_ibfk_1">
     <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />

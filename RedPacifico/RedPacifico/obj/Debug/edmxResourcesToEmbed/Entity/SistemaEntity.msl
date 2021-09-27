@@ -36,12 +36,12 @@
     <EntitySetMapping Name="ventas">
       <EntityTypeMapping TypeName="sistemaModel.ventas">
         <MappingFragment StoreEntitySet="ventas">
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="bonificacionEnganche" ColumnName="bonificacionEnganche" />
+          <ScalarProperty Name="enganche" ColumnName="enganche" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="cliente" ColumnName="cliente" />
           <ScalarProperty Name="producto" ColumnName="producto" />
-          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-          <ScalarProperty Name="precio" ColumnName="precio" />
-          <ScalarProperty Name="importe" ColumnName="importe" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

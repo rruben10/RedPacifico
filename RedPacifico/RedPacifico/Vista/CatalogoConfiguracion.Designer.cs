@@ -46,63 +46,69 @@ namespace RedPacifico
             // 
             // lblTasaFinanciamiento
             // 
-            this.lblTasaFinanciamiento.AutoSize = true;
-            this.lblTasaFinanciamiento.Location = new System.Drawing.Point(110, 144);
+            this.lblTasaFinanciamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTasaFinanciamiento.Location = new System.Drawing.Point(462, 334);
             this.lblTasaFinanciamiento.Name = "lblTasaFinanciamiento";
-            this.lblTasaFinanciamiento.Size = new System.Drawing.Size(105, 13);
+            this.lblTasaFinanciamiento.Size = new System.Drawing.Size(195, 38);
             this.lblTasaFinanciamiento.TabIndex = 0;
             this.lblTasaFinanciamiento.Text = "Tasa Financiamiento";
             // 
             // txtTasaFinanciamiento
             // 
-            this.txtTasaFinanciamiento.Location = new System.Drawing.Point(221, 141);
+            this.txtTasaFinanciamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTasaFinanciamiento.Location = new System.Drawing.Point(652, 331);
             this.txtTasaFinanciamiento.MaxLength = 9;
             this.txtTasaFinanciamiento.Name = "txtTasaFinanciamiento";
-            this.txtTasaFinanciamiento.Size = new System.Drawing.Size(100, 20);
+            this.txtTasaFinanciamiento.Size = new System.Drawing.Size(223, 29);
             this.txtTasaFinanciamiento.TabIndex = 1;
             this.txtTasaFinanciamiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasaFinanciamiento_KeyPress);
             // 
             // txtPorcentajeEnganche
             // 
-            this.txtPorcentajeEnganche.Location = new System.Drawing.Point(221, 167);
+            this.txtPorcentajeEnganche.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcentajeEnganche.Location = new System.Drawing.Point(652, 381);
             this.txtPorcentajeEnganche.MaxLength = 9;
             this.txtPorcentajeEnganche.Name = "txtPorcentajeEnganche";
-            this.txtPorcentajeEnganche.Size = new System.Drawing.Size(100, 20);
+            this.txtPorcentajeEnganche.Size = new System.Drawing.Size(223, 29);
             this.txtPorcentajeEnganche.TabIndex = 3;
             this.txtPorcentajeEnganche.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentajeEnganche_KeyPress);
             // 
             // lblPorcentajeEnganche
             // 
             this.lblPorcentajeEnganche.AutoSize = true;
-            this.lblPorcentajeEnganche.Location = new System.Drawing.Point(148, 170);
+            this.lblPorcentajeEnganche.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcentajeEnganche.Location = new System.Drawing.Point(526, 384);
             this.lblPorcentajeEnganche.Name = "lblPorcentajeEnganche";
-            this.lblPorcentajeEnganche.Size = new System.Drawing.Size(67, 13);
+            this.lblPorcentajeEnganche.Size = new System.Drawing.Size(118, 24);
             this.lblPorcentajeEnganche.TabIndex = 2;
             this.lblPorcentajeEnganche.Text = "% Enganche";
             // 
             // txtPlazo
             // 
-            this.txtPlazo.Location = new System.Drawing.Point(221, 195);
+            this.txtPlazo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlazo.Location = new System.Drawing.Point(652, 437);
             this.txtPlazo.MaxLength = 3;
             this.txtPlazo.Name = "txtPlazo";
-            this.txtPlazo.Size = new System.Drawing.Size(100, 20);
+            this.txtPlazo.Size = new System.Drawing.Size(223, 29);
             this.txtPlazo.TabIndex = 5;
             this.txtPlazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPlazo_KeyPress);
             // 
             // lblPlazo
             // 
             this.lblPlazo.AutoSize = true;
-            this.lblPlazo.Location = new System.Drawing.Point(180, 198);
+            this.lblPlazo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlazo.Location = new System.Drawing.Point(588, 440);
             this.lblPlazo.Name = "lblPlazo";
-            this.lblPlazo.Size = new System.Drawing.Size(33, 13);
+            this.lblPlazo.Size = new System.Drawing.Size(56, 24);
             this.lblPlazo.TabIndex = 4;
             this.lblPlazo.Text = "Plazo";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(385, 332);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(592, 507);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(109, 42);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -110,9 +116,10 @@ namespace RedPacifico
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(515, 332);
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(761, 507);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(114, 42);
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -121,7 +128,7 @@ namespace RedPacifico
             // lblConfig
             // 
             this.lblConfig.AutoSize = true;
-            this.lblConfig.Location = new System.Drawing.Point(141, 105);
+            this.lblConfig.Location = new System.Drawing.Point(572, 295);
             this.lblConfig.Name = "lblConfig";
             this.lblConfig.Size = new System.Drawing.Size(72, 13);
             this.lblConfig.TabIndex = 8;
@@ -130,9 +137,9 @@ namespace RedPacifico
             // 
             // txtIdConfig
             // 
-            this.txtIdConfig.Location = new System.Drawing.Point(221, 102);
+            this.txtIdConfig.Location = new System.Drawing.Point(652, 292);
             this.txtIdConfig.Name = "txtIdConfig";
-            this.txtIdConfig.Size = new System.Drawing.Size(100, 20);
+            this.txtIdConfig.Size = new System.Drawing.Size(159, 20);
             this.txtIdConfig.TabIndex = 9;
             this.txtIdConfig.Visible = false;
             // 
@@ -144,7 +151,7 @@ namespace RedPacifico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1424, 756);
             this.Controls.Add(this.txtIdConfig);
             this.Controls.Add(this.lblConfig);
             this.Controls.Add(this.btnGuardar);
@@ -155,8 +162,11 @@ namespace RedPacifico
             this.Controls.Add(this.lblPorcentajeEnganche);
             this.Controls.Add(this.txtTasaFinanciamiento);
             this.Controls.Add(this.lblTasaFinanciamiento);
+            this.KeyPreview = true;
             this.Name = "Form_catalogoConfiguracion";
             this.Text = "Catálogo Configuración";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_catalogoConfiguracion_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.errorCampoValido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
