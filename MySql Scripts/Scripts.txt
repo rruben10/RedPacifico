@@ -1,0 +1,53 @@
+CREATE TABLE clientes(
+	id BIGINT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL DEFAULT '',
+    apellidoPaterno	VARCHAR(100) NOT NULL DEFAULT '',
+    apellidoMaterno	VARCHAR(100) NOT NULL DEFAULT '',
+    RFC	VARCHAR(50) NOT NULL,
+    PRIMARY KEY(id),
+    UNIQUE(RFC)
+);
+
+CREATE TABLE productos(
+	id	BIGINT NOT NULL AUTO_INCREMENT,
+    descripcion VARCHAR(50) NOT NULL DEFAULT '',
+    modelo	VARCHAR(50) NOT NULL DEFAULT '',
+    precio	integer NOT NULL DEFAULT 0,
+    existencia smallint NOT NULL DEFAULT 0,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE configuracion(
+  id bigint unsigned NOT NULL AUTO_INCREMENT,
+  tasa float NOT NULL DEFAULT '0',
+  enganche float NOT NULL DEFAULT '0',
+  plazo smallint NOT NULL DEFAULT '0',
+  PRIMARY KEY (id),
+  UNIQUE KEY id (id)
+);
+
+CREATE TABLE ventas(
+	id BIGINT NOT NULL AUTO_INCREMENT,
+    cliente BIGINT,
+    producto BIGINT,
+    enganche INTEGER NOT NULL DEFAULT 0,
+    bonificacionEnganche	INTEGER NOT NULL DEFAULT 0,
+    total	INTEGER NOT NULL DEFAULT 0,
+    primary key(id),
+    foreign key(cliente) references clientes(id),
+    foreign key(producto) references productos(id)
+);
+
+DELIMITER $$
+CREATE PROCEDURE proc_consultarclientes()
+BEGIN
+	SELECT * FROM clientes;
+END$$
+DELIMITER;
+
+DELIMITER $$
+CREATE PROCEDURE proc_consultarproductos()
+BEGIN
+	SELECT * FROM productos;
+END$$
+DELIMITER;
