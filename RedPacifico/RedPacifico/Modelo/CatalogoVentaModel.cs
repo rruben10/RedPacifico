@@ -1,5 +1,7 @@
-﻿using RedPacifico.Entidades;
+﻿using Newtonsoft.Json;
+using RedPacifico.Entidades;
 using RedPacifico.Entity;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,38 +12,33 @@ namespace RedPacifico.Modelo
 {
     class CatalogoVentaModel
     {
+        /// <summary>
+        /// se consume servicio para obtener las ventas
+        /// </summary>
+        /// <returns></returns>
         public List<Venta> ObtenerVentas()
         {
             List<Venta> listaVentas = new List<Venta>();
 
             try
             {
-                //Se hace conexion a la bd
-                using (sistemaEntities2 db = new sistemaEntities2())
+                var client = new RestClient("http://localhost:59384/api/ventas"); //La url deberia de ser obtenida desde una bd para traer el DNS/Servidor y la URL
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                IRestResponse response = client.Execute(request);
+                var responseContent = JsonConvert.DeserializeObject<IEnumerable<Venta>>(response.Content);
+                foreach (var oVenta in responseContent)
                 {
-                    //Se hace una lista de la consulta completa de la tabla ventas
-                    var listaSqlVentas = db.ventas.ToList();
-
-                    //Se recorre la lista con las ventas
-                    foreach (var oVenta in listaSqlVentas)
+                    Venta venta = new Venta
                     {
-                        var detalleProducto = db.productos.Find(oVenta.producto);
-
-                        //Se agrega a un objeto cada venta para una lista del tipo List<Venta>
-                        Venta objVenta = new Venta
-                        {
-                            IdVenta = oVenta.id,
-                            Cliente = Convert.ToInt64(oVenta.cliente),
-                            Producto = Convert.ToInt64(oVenta.producto),
-                            DescProduc = detalleProducto.descripcion,
-                            ModeloProduc = detalleProducto.modelo,
-                            Enganche = oVenta.enganche,
-                            BonificacionEnganche = oVenta.bonificacionEnganche,
-                            Total = oVenta.total
-                        };
-
-                        listaVentas.Add(objVenta);
-                    }
+                        Id = oVenta.Id,
+                        Cliente = Convert.ToInt64(oVenta.Cliente),
+                        Producto = Convert.ToInt64(oVenta.Producto),
+                        Enganche = oVenta.Enganche,
+                        BonificacionEnganche = oVenta.BonificacionEnganche,
+                        Total = oVenta.Total
+                    };
+                    listaVentas.Add(venta);
                 }
             }
             catch (Exception ex)

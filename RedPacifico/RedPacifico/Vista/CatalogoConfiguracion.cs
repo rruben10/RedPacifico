@@ -22,18 +22,25 @@ namespace RedPacifico
             ConsultarConfiguracion();
         }
 
+        /// <summary>
+        /// variables de la vista
+        /// </summary>
         public int IdConfig { get => int.Parse(txtIdConfig.Text); set => IdConfig = value; }
         public float TasaFinanciamiento { get => float.Parse(txtTasaFinanciamiento.Text); set => TasaFinanciamiento = value; }
         public float PorcentajeEnganche { get => float.Parse(txtPorcentajeEnganche.Text); set => PorcentajeEnganche = value; }
         public short Plazo { get => short.Parse(txtPlazo.Text); set => Plazo = value; }
 
+        /// <summary>
+        /// Se consulta la configuracion existente
+        /// </summary>
+        /// <param name="config">objeto con la informacion de la configuracion, se llena desde el modelo mediante la interfaz</param>
         void ICatalogoConfiguracionController.ConsultaConfiguracion(Configuracion config)
         {
             try
             {
-                txtIdConfig.Text = config.IdConfiguracion.ToString();
-                txtTasaFinanciamiento.Text = String.Format("{0:0.00}", config.TasaFinanciamiento);
-                txtPorcentajeEnganche.Text = String.Format("{0:0.00}", config.PorcentajeEnganche);
+                txtIdConfig.Text = config.Id.ToString();
+                txtTasaFinanciamiento.Text = String.Format("{0:0.00}", config.Tasa);
+                txtPorcentajeEnganche.Text = String.Format("{0:0.00}", config.Enganche);
                 txtPlazo.Text = config.Plazo.ToString();
             }
             catch (Exception)
@@ -42,15 +49,27 @@ namespace RedPacifico
                 throw;
             }
         }
+        /// <summary>
+        /// Se manda llamar el controlador para obtener la configuracion
+        /// </summary>
         public void ConsultarConfiguracion()
         {
             _controlador.ConsultaConfiguracion();
         }
-
+        /// <summary>
+        /// Se valida textbox tasa financiamiento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaFinanciamiento_KeyPress(object sender, KeyPressEventArgs e)
         {
             validarCampoFloat(sender, e);
         }
+        /// <summary>
+        /// Metodo para validar datos tipo float
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void validarCampoFloat(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
@@ -58,6 +77,11 @@ namespace RedPacifico
                 e.Handled = true;
             }
         }
+        /// <summary>
+        /// Metodo para admitir datos solo numericos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void validarCampoNumerico(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -65,17 +89,29 @@ namespace RedPacifico
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Se valida textbox Porcentaje enganche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPorcentajeEnganche_KeyPress(object sender, KeyPressEventArgs e)
         {
             validarCampoFloat(sender, e);
         }
-
+        /// <summary>
+        /// Se valida textbox plazo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPlazo_KeyPress(object sender, KeyPressEventArgs e)
         {
             validarCampoNumerico(sender, e);
         }
-
+        /// <summary>
+        /// Metodo que detorna el evento guardar, valida esten todos los campos validados correctamente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = ValidarDatosCapturados();
@@ -91,6 +127,10 @@ namespace RedPacifico
                 }
             }
         }
+        /// <summary>
+        /// Se valida cada textbox de esta vista
+        /// </summary>
+        /// <returns></returns>
         private string ValidarDatosCapturados()
         {
             inicializarErrorProviderCampos();

@@ -20,32 +20,42 @@ namespace RedPacifico
             InitializeComponent();
             _controlador = new Controlador.DetalleProductoController(this);
         }
-
+        /// <summary>
+        /// Se crea contructor para cuando se elige la opcion de editar
+        /// </summary>
+        /// <param name="idProducto"></param>
         public Form_detalleProducto(int idProducto)
         {
             InitializeComponent();
             _controlador = new Controlador.DetalleProductoController(this);
-
             _controlador.ConsultaProducto(idProducto);
-
             this.btnDetalleGuardar.Text = "Actualizar";
         }
-
+        /// <summary>
+        /// variables de control de la vista
+        /// </summary>
         public int IdProducto { get => int.Parse(txtIdProducto.Text); set => IdProducto = value; }
         public string DescripcionProducto { get => txtProductoDes.Text; set => DescripcionProducto = value; }
         public string ModeloProducto { get => txtProductoModelo.Text; set => ModeloProducto = value; }
         public int PrecioProducto { get => int.Parse(txtProductoPrecio.Text); set => PrecioProducto = value; }
         public int ExistenciaProducto { get => int.Parse(txtProductoExistencia.Text); set => ExistenciaProducto = value; }
 
+        /// <summary>
+        /// Se consulta producto existente
+        /// </summary>
+        /// <param name="objProducto">objeto con el detalle del producto, se llena desde el modelo mediante la interfaz</param>
         void IDetalleProductoController.ConsultaProducto(Producto objProducto)
         {
-            txtIdProducto.Text = objProducto.IdProducto.ToString();
+            txtIdProducto.Text = objProducto.Id.ToString();
             txtProductoDes.Text = objProducto.Descripcion;
             txtProductoModelo.Text = objProducto.Modelo;
             txtProductoPrecio.Text = objProducto.Precio.ToString();
             txtProductoExistencia.Text = objProducto.Existencia.ToString();
         }
-
+        /// <summary>
+        /// Metodo para validar el grabado correcto
+        /// </summary>
+        /// <param name="grabado">valida que se haya grabado el registro, se llama desde el modelo</param>
         public void GuardarRegistro(int grabado)
         {
             if (grabado == 1)
@@ -58,7 +68,11 @@ namespace RedPacifico
                 formCatalogoProductos.ShowDialog();
             }
         }
-
+        /// <summary>
+        /// Evento para validar que toda la informacion este correcta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDetalleGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = ValidarDatosCapturados();
@@ -81,6 +95,10 @@ namespace RedPacifico
                 _controlador.GuardarProducto();
             }
         }
+        /// <summary>
+        /// Metodo para validar los textbox de esta vista
+        /// </summary>
+        /// <returns></returns>
         string ValidarDatosCapturados()
         {
             inicializarErrorProviderCampos();
@@ -157,6 +175,10 @@ namespace RedPacifico
             {
                 e.Handled = true;
             }
+        }
+        private void btnDetalleCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

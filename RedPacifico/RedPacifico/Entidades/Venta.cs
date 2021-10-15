@@ -8,7 +8,7 @@ namespace RedPacifico.Entidades
 {
     class Venta
     {
-        public long IdVenta { get; set; }
+        public long Id { get; set; }
         public long Cliente { get; set; }
         public long Producto { get; set; }
         public string DescProduc { get; set; }

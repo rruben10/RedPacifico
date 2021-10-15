@@ -44,3 +44,9 @@ C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifi
 C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\obj\Release\RedPacifico.csproj.CopyComplete
 C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\obj\Release\RedPacifico.exe
 C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\obj\Release\RedPacifico.pdb
+C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\bin\Release\Newtonsoft.Json.dll
+C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\bin\Release\RestSharp.dll
+C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\bin\Release\Newtonsoft.Json.xml
+C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\bin\Release\RestSharp.xml
+C:\Users\ruben\OneDrive\Escritorio\RedPacifico\RedPacifico\RedPacifico\RedPacifico\bin\Release\System.Net.Http.Formatting.xml

@@ -26,6 +26,10 @@ namespace RedPacifico
             _controlador = new Controlador.CatalogoClienteController(this);
             MostrarClientes();
         }
+        /// <summary>
+        /// Se consultan todos los clientes que existen en el sistema para agregarlos al grid
+        /// </summary>
+        /// <param name="listClientes">lista con la informacion de los clientes, se llena desde el modelo mediante la interfaz</param>
 
         void ICatalogoClienteController.ConsultaClientes(List<Cliente> listClientes)
         {
@@ -45,12 +49,19 @@ namespace RedPacifico
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Se manda llamar el controlador para consultar los clientes
+        /// </summary>
         public void MostrarClientes()
         {
             _controlador.ConsultarCatalogoClientes();
         }
 
+        /// <summary>
+        /// Se manda llamar vista para "nuevo cliente"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
             Form_detalleCliente detalleCliente = new Form_detalleCliente();
@@ -58,7 +69,11 @@ namespace RedPacifico
 
             this.Close();
         }
-
+        /// <summary>
+        /// Se identifica cuando se de clic en boton editar cliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridCatalogoClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridCatalogoClientes.Columns[e.ColumnIndex].Name == "columEditar")
@@ -71,7 +86,11 @@ namespace RedPacifico
                 this.Close();
             }
         }
-
+        /// <summary>
+        /// Se valida tecla Escape para salir de esta opcion del sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form_CatalogoClientes_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)

@@ -21,7 +21,10 @@ namespace RedPacifico.Vista
             _controlador = new Controlador.CatalogoVentaController(this);
             MostrarVentas();
         }
-
+        /// <summary>
+        /// Se obtienen las ventas existentes
+        /// </summary>
+        /// <param name="listVentas">Lista con las ventas, se llena desde el modelo mediante la interfaz</param>
         void ICatalogoVentaController.ConsultarVentas(List<Venta> listVentas)
         {
             try
@@ -30,7 +33,7 @@ namespace RedPacifico.Vista
 
                 foreach (Venta ventas in listVentas)
                 {
-                    gridCatalogoVentas.Rows.Add(ventas.IdVenta, ventas.Cliente, ventas.Producto, ventas.DescProduc, ventas.ModeloProduc, ventas.Enganche, ventas.BonificacionEnganche, ventas.Total);
+                    gridCatalogoVentas.Rows.Add(ventas.Cliente, ventas.Producto, ventas.Enganche, ventas.BonificacionEnganche, ventas.Total);
                 }
 
             }
@@ -39,7 +42,9 @@ namespace RedPacifico.Vista
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Se manda llamar el controlador para consultar las ventas
+        /// </summary>
         public void MostrarVentas()
         {
             _controlador.ConsultarCatalogoVentas();

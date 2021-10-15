@@ -19,7 +19,9 @@ namespace RedPacifico
     {
         MySqlConnection conexion = Conexion.obtenerConexion();
         private Controlador.OpcionVentasController _controlador;
-
+        /// <summary>
+        /// variables de control para la vista
+        /// </summary>
         public string NombreCliente { get => txtCliente.Text; set => NombreCliente = value; }
         public string NombreProducto { get => txtProducto.Text; set => NombreProducto = value; }
         public string Enganche { get => txtEnganche.Text; set => Enganche = value; }
@@ -32,10 +34,11 @@ namespace RedPacifico
             _controlador = new Controlador.OpcionVentasController(this);
             AutoCompletarClientes();
             AutoCompletarProductos();
-
             conexion.Close();
         }
-
+        /// <summary>
+        /// Metodo para realizar el "autocompletado" de la busqueda de clientes
+        /// </summary>
         void AutoCompletarClientes()
         {
             DataTable datosCliente = new DataTable();
@@ -56,7 +59,9 @@ namespace RedPacifico
 
             txtCliente.AutoCompleteCustomSource = lista;
         }
-
+        /// <summary>
+        /// Metodo para realizar el "autocompletado" de la busqueda de producto
+        /// </summary>
         void AutoCompletarProductos()
         {
             DataTable datosProducto = new DataTable();
@@ -80,7 +85,10 @@ namespace RedPacifico
         {
             _controlador.ConsultaProducto();
         }
-
+        /// <summary>
+        /// obtiene informacion de producto y valida su existencia
+        /// </summary>
+        /// <param name="producto">objeto con la informacion del producto, se llena desde el modelo mediante la interfaz</param>
         void IOpcionVentasController.ConsultaProducto(Producto producto)
         {
             int cantidad = 1;
@@ -103,7 +111,7 @@ namespace RedPacifico
 
                     for (int i = 0; i < gridVenta.Rows.Count; i++)
                     {
-                        if (producto.IdProducto == int.Parse(gridVenta.Rows[i].Cells[0].Value.ToString()))
+                        if (producto.Id == int.Parse(gridVenta.Rows[i].Cells[0].Value.ToString()))
                         {
                             cantidad++;
                             //Se elimina producto repetido
@@ -111,10 +119,10 @@ namespace RedPacifico
                             gridVenta.Rows.Remove(grid);
                         }
                     }
-                    int precio = (int)(producto.Precio * (1 + config.TasaFinanciamiento * config.Plazo) / 100);
+                    int precio = (int)(producto.Precio * (1 + config.Tasa * config.Plazo) / 100);
                     int importe = precio * cantidad;
 
-                    gridVenta.Rows.Add(producto.IdProducto, producto.Descripcion, producto.Modelo, cantidad, precio, importe);
+                    gridVenta.Rows.Add(producto.Id, producto.Descripcion, producto.Modelo, cantidad, precio, importe);
 
                     CalcularTotales();
                 }
@@ -155,6 +163,10 @@ namespace RedPacifico
             errorCampoValido.SetError(txtCliente, "");
             errorCampoValido.SetError(txtProducto, "");
         }
+        /// <summary>
+        /// valida campos capturados
+        /// </summary>
+        /// <returns></returns>
         private string ValidarDatosCapturados()
         {
             inicializarErrorProviderCampos();
@@ -176,7 +188,11 @@ namespace RedPacifico
 
             return MensajeCamposInvalidos;
         }
-
+        /// <summary>
+        /// evento para eliminar un registro del grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridVenta.Columns[e.ColumnIndex].Name == "columEliminar")
@@ -186,6 +202,9 @@ namespace RedPacifico
                 CalcularTotales();
             }
         }
+        /// <summary>
+        /// Calcula y asigna totales
+        /// </summary>
         private void CalcularTotales()
         {
             Configuracion config = new Configuracion();
@@ -194,15 +213,22 @@ namespace RedPacifico
 
             for (int i = 0; i < gridVenta.Rows.Count; i++)
             {
-                //precio += int.Parse(gridVenta.Rows[i].Cells[4].Value.ToString()); //columna precio
+                //Se suman todos los importes del grid para sacar los totales de la venta
                 importe += int.Parse(gridVenta.Rows[i].Cells[5].Value.ToString()); //columna importe
             }
 
-            //Textbox de importes
-            int enganche = (int)(config.PorcentajeEnganche / 100 * importe);
-            int bonificacionEnganche = (int)(enganche * (config.TasaFinanciamiento * config.Plazo) / 100);
-            int total = importe - enganche - bonificacionEnganche;
+            //Se calculan valores iniciales
+            int enganche = (int)(config.Enganche / 100 * importe);
+            int bonificacionEnganche = (int)(enganche * (config.Tasa * config.Plazo) / 100);
 
+            //Se ordenan importes para evitar numeros negativos
+            var valores = new List<int> { importe, enganche, bonificacionEnganche };
+            List<int> importesOrdenados = valores.OrderByDescending(valor => valor).ToList();
+            
+            //Se calcula el total con numeros ordenados para evitar negativos
+            int total = importesOrdenados[0] - importesOrdenados[1] - importesOrdenados[2];
+
+            //Textbox de importes
             txtEnganche.Text = enganche.ToString();
             txtBonificacion.Text = bonificacionEnganche.ToString();
             txtTotal.Text = total.ToString();

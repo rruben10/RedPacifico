@@ -8,9 +8,9 @@ namespace RedPacifico.Entidades
 {
     class Configuracion
     {
-        public int IdConfiguracion { get; set; }
-        public float TasaFinanciamiento { get; set; }
-        public float PorcentajeEnganche { get; set; }
+        public int Id { get; set; }
+        public float Tasa { get; set; }
+        public float Enganche { get; set; }
         public short Plazo { get; set; }
     }
 }

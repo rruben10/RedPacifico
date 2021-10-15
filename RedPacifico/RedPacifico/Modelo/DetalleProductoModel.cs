@@ -1,5 +1,7 @@
-﻿using RedPacifico.Entidades;
+﻿using Newtonsoft.Json;
+using RedPacifico.Entidades;
 using RedPacifico.Entity;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +12,40 @@ namespace RedPacifico.Modelo
 {
     class DetalleProductoModel
     {
+        /// <summary>
+        /// se consume servicio para grabar un producto
+        /// </summary>
+        /// <param name="descripcion"></param>
+        /// <param name="modelo"></param>
+        /// <param name="precio"></param>
+        /// <param name="existencia"></param>
+        /// <returns></returns>
         public int GrabarProducto(string descripcion, string modelo, int precio, int existencia)
         {
             int grabado = 0;
             try
             {
-                using (sistemaEntities2 db = new sistemaEntities2())
+                var client = new RestClient("http://localhost:59384/api/productos");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/json");
+
+                Producto producto = new Producto()
                 {
-                    productos objProducto = new productos
-                    {
-                        descripcion = descripcion,
-                        modelo = modelo,
-                        precio = precio,
-                        existencia = short.Parse(existencia.ToString())
-                    };
+                    Descripcion = descripcion,
+                    Modelo = modelo,
+                    Precio = precio,
+                    Existencia = existencia
+                };
 
-                    db.productos.Add(objProducto);
-                    db.SaveChanges();
+                var body = JsonConvert.SerializeObject(producto);
+
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                IRestResponse response = client.Execute(request);
+
+                if (response.IsSuccessful)
+                {
                     grabado = 1;
-
                 }
             }
             catch (Exception)
@@ -39,49 +56,65 @@ namespace RedPacifico.Modelo
 
             return grabado;
         }
-
+        /// <summary>
+        /// se consume servicio para obtener informacion del producto
+        /// </summary>
+        /// <param name="idProducto"></param>
+        /// <returns></returns>
         public Producto DetalleProducto(int idProducto)
         {
             Producto objProducto = new Producto();
             try
             {
-                using (sistemaEntities2 db = new sistemaEntities2())
-                {
-                    var producto = db.productos.Find(idProducto);
-
-                    objProducto.IdProducto = int.Parse(producto.id.ToString());
-                    objProducto.Descripcion = producto.descripcion;
-                    objProducto.Modelo = producto.modelo;
-                    objProducto.Precio = producto.precio;
-                    objProducto.Existencia = producto.existencia;
-                }
+                var client = new RestClient("http://localhost:59384/api/productos?id="+ idProducto); //La url deberia de ser obtenida desde una bd para traer el DNS/Servidor y la URL
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Content-Type", "application/json");
+                IRestResponse response = client.Execute(request);
+                objProducto = JsonConvert.DeserializeObject<Producto>(response.Content);
             }
             catch (Exception)
             {
-
                 throw;
             }
 
-
             return objProducto;
         }
-
+        /// <summary>
+        /// se consume servicio para actualizar informacion del producto
+        /// </summary>
+        /// <param name="idProducto"></param>
+        /// <param name="descripcion"></param>
+        /// <param name="modelo"></param>
+        /// <param name="precio"></param>
+        /// <param name="existencia"></param>
+        /// <returns></returns>
         public Boolean ActualizarProducto(int idProducto, string descripcion, string modelo, int precio, int existencia)
         {
             bool actualizoProducto = false;
             try
             {
-                using (sistemaEntities2 db = new sistemaEntities2())
+                var client = new RestClient("http://localhost:59384/api/productos?id="+ idProducto); //La url deberia de ser obtenida desde una bd para traer el DNS/Servidor y la URL
+                client.Timeout = -1;
+                var request = new RestRequest(Method.PUT);
+                request.AddHeader("Content-Type", "application/json");
+
+                Producto producto = new Producto()
                 {
-                    var producto = db.productos.Find(idProducto);
+                    Id = idProducto,
+                    Descripcion = descripcion,
+                    Modelo = modelo,
+                    Precio = precio,
+                    Existencia = existencia
+                };
 
-                    producto.descripcion = descripcion;
-                    producto.modelo = modelo;
-                    producto.precio = precio;
-                    producto.existencia = short.Parse(existencia.ToString());
+                var body = JsonConvert.SerializeObject(producto);
 
-                    db.Entry(producto).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                IRestResponse response = client.Execute(request);
+
+                if (response.IsSuccessful)
+                {
                     actualizoProducto = true;
                 }
             }

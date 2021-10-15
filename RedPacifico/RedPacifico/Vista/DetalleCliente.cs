@@ -84,20 +84,22 @@ namespace RedPacifico
             InitializeComponent();
             _controlador = new Controlador.DetalleClienteController(this);
         }
-
+        /// <summary>
+        /// Se agrega nuevo construsctor para cuando se elige la opcion de "editar"
+        /// </summary>
+        /// <param name="idCliente"></param>
         public Form_detalleCliente(int idCliente)
         {
             InitializeComponent();
             _controlador = new Controlador.DetalleClienteController(this);
-
             _controlador.ConsultaCliente(idCliente);
-
             this.btnDetalleGuardar.Text = "Actualizar";
-
-
-
         }
-
+        /// <summary>
+        /// Evento que valida que todos los campos esten correctos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDetalleGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = ValidarDatosCapturados();
@@ -125,7 +127,10 @@ namespace RedPacifico
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Metodo para validar todos los textbox de esta vista
+        /// </summary>
+        /// <returns></returns>
         private string ValidarDatosCapturados()
         {
             inicializarErrorProviderCampos();
@@ -167,7 +172,10 @@ namespace RedPacifico
             errorCampoValido.SetError(txtDetalleMaterno, "");
             errorCampoValido.SetError(txtDetalleRFC, "");
         }
-
+        /// <summary>
+        /// Metodo para validar que el registro se guardo correctamente
+        /// </summary>
+        /// <param name="grabado"></param>
         public void GuardarRegistro(int grabado)
         {
             if (grabado == 1)
@@ -180,7 +188,10 @@ namespace RedPacifico
                 formCatalogoClientes.ShowDialog();
             }
         }
-
+        /// <summary>
+        /// Se consulta un cliente en especifico
+        /// </summary>
+        /// <param name="objCliente">Este objeto contiene la informacion del cliente, se llama desde el modelo mediante la interfaz</param>
         void IDetalleClienteController.ConsultaCliente(Cliente objCliente)
         {
             txtIdCliente.Text = objCliente.Id.ToString();

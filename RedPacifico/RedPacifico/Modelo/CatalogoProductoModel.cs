@@ -1,5 +1,7 @@
-﻿using RedPacifico.Entidades;
+﻿using Newtonsoft.Json;
+using RedPacifico.Entidades;
 using RedPacifico.Entity;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,34 +12,36 @@ namespace RedPacifico.Modelo
 {
     class CatalogoProductoModel
     {
+        /// <summary>
+        /// se consume servicio para obtener los productos
+        /// </summary>
+        /// <returns></returns>
         public List<Producto> ObtenerProductos()
         {
             List<Producto> listaProductos = new List<Producto>();
 
             try
             {
-                //Se hace conexion a la bd
-                using (sistemaEntities2 db = new sistemaEntities2())
+                //
+                var client = new RestClient("http://localhost:59384/api/productos"); //La url deberia de ser obtenida desde una bd para traer el DNS/Servidor y la URL
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Content-Type", "application/json");
+                IRestResponse response = client.Execute(request);
+                var responseContent = JsonConvert.DeserializeObject<IEnumerable<Producto>>(response.Content);
+                foreach (var oProducto in responseContent)
                 {
-                    //Se hace una lista de la consulta completa de la tabla clientes
-                    var listaSqlCliente = db.productos.ToList();
-
-                    //Se recorre la lista con los clientes
-                    foreach (var oProducto in listaSqlCliente)
+                    Producto producto = new Producto
                     {
-                        //Se agrega a un objeto cada cliente para una lista del tipo List<Cliente>
-                        Producto objProducto = new Producto
-                        {
-                            IdProducto = Convert.ToInt32(oProducto.id),
-                            Descripcion = oProducto.descripcion,
-                            Modelo = oProducto.modelo,
-                            Precio = oProducto.precio,
-                            Existencia = oProducto.existencia
-                        };
-
-                        listaProductos.Add(objProducto);
-                    }
+                        Id = Convert.ToInt32(oProducto.Id),
+                        Descripcion = oProducto.Descripcion,
+                        Modelo = oProducto.Modelo,
+                        Precio = oProducto.Precio,
+                        Existencia = oProducto.Existencia
+                    };
+                    listaProductos.Add(producto);
                 }
+                //
             }
             catch (Exception ex)
             {

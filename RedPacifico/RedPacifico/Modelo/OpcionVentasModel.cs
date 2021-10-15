@@ -1,5 +1,7 @@
-﻿using RedPacifico.Entidades;
+﻿using Newtonsoft.Json;
+using RedPacifico.Entidades;
 using RedPacifico.Entity;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,11 @@ namespace RedPacifico.Modelo
 {
     class OpcionVentasModel
     {
+        /// <summary>
+        /// se consume servicio para obtener informacion del producto
+        /// </summary>
+        /// <param name="NombreProducto"></param>
+        /// <returns></returns>
         public Producto ObtenerProducto(string NombreProducto)
         {
             Producto objProducto = new Producto();
@@ -19,16 +26,13 @@ namespace RedPacifico.Modelo
                 if (NombreProducto != "" && NombreProducto.Contains("|"))
                 {
                     int idProducto = int.Parse(NombreProducto.Split('|')[1]);
-                    using (sistemaEntities2 db = new sistemaEntities2())
-                    {
-                        var producto = db.productos.Find(idProducto);
 
-                        objProducto.IdProducto = idProducto;
-                        objProducto.Descripcion = producto.descripcion;
-                        objProducto.Modelo = producto.modelo;
-                        objProducto.Existencia = producto.existencia;
-                        objProducto.Precio = producto.precio;
-                    }
+                    var client = new RestClient("http://localhost:59384/api/productos?id=" + idProducto); //La url deberia de ser obtenida desde una bd para traer el DNS/Servidor y la URL
+                    client.Timeout = -1;
+                    var request = new RestRequest(Method.GET);
+                    request.AddHeader("Content-Type", "application/json");
+                    IRestResponse response = client.Execute(request);
+                    objProducto = JsonConvert.DeserializeObject<Producto>(response.Content);
                 }
                 else
                 {
@@ -43,22 +47,27 @@ namespace RedPacifico.Modelo
 
             return objProducto;
         }
+        /// <summary>
+        /// se consume servicio para obtener la configuracion
+        /// </summary>
+        /// <returns></returns>
         public Configuracion ObtenerConfig()
         {
-            Configuracion objConfig = new Configuracion();
+            Configuracion conf = new Configuracion();
             try
             {
-                using(sistemaEntities2 db = new sistemaEntities2())
+                var client = new RestClient("http://localhost:59384/api/configuracions"); //La url deberia de ser obtenida desde una bd para traer el DNS/Servidor y la URL
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Content-Type", "application/json");
+                IRestResponse response = client.Execute(request);
+                var responseContent = JsonConvert.DeserializeObject<IEnumerable<Configuracion>>(response.Content);
+                foreach (var oConfig in responseContent)
                 {
-                    var config = db.configuracion.ToList();
-
-                    foreach (var oConfig in config)
-                    {
-                        objConfig.IdConfiguracion = int.Parse(oConfig.id.ToString());
-                        objConfig.TasaFinanciamiento = oConfig.tasa;
-                        objConfig.PorcentajeEnganche = oConfig.enganche;
-                        objConfig.Plazo = oConfig.plazo;
-                    }
+                    conf.Id = int.Parse(oConfig.Id.ToString());
+                    conf.Tasa = oConfig.Tasa;
+                    conf.Enganche = oConfig.Enganche;
+                    conf.Plazo = oConfig.Plazo;
                 }
             }
             catch (Exception e)
@@ -66,8 +75,17 @@ namespace RedPacifico.Modelo
 
                 throw e;
             }
-            return objConfig;
+            return conf;
         }
+        /// <summary>
+        /// se consume servicio para grabar la venta
+        /// </summary>
+        /// <param name="idCliente"></param>
+        /// <param name="idProducto"></param>
+        /// <param name="enganche"></param>
+        /// <param name="bonificacionEnganche"></param>
+        /// <param name="Total"></param>
+        /// <returns></returns>
         public int GrabarVenta(string idCliente, string idProducto, string enganche, string bonificacionEnganche, string Total)
         {
             int grabo = 0;
@@ -77,19 +95,29 @@ namespace RedPacifico.Modelo
                 {
                     int idClient = int.Parse(idCliente.Split('|')[1]); //obtengo el ID del mismo textbox
                     int idProduct = int.Parse(idProducto.Split('|')[1]); //obtengo el ID del mismo textbox
-                    using (sistemaEntities2 db = new sistemaEntities2())
-                    {
-                        ventas oVenta = new ventas
-                        {
-                            cliente = idClient,
-                            producto = idProduct,
-                            enganche = int.Parse(enganche),
-                            bonificacionEnganche = int.Parse(bonificacionEnganche),
-                            total = int.Parse(Total)
-                        };
 
-                        db.ventas.Add(oVenta);
-                        db.SaveChanges();
+                    //
+                    var client = new RestClient("http://localhost:59384/api/ventas"); //La url deberia de ser obtenida desde una bd para traer el DNS/Servidor y la URL
+                    client.Timeout = -1;
+                    var request = new RestRequest(Method.POST);
+                    request.AddHeader("Content-Type", "application/json");
+
+                    Venta venta = new Venta()
+                    {
+                        Cliente = idClient,
+                        Producto = idProduct,
+                        Enganche = int.Parse(enganche),
+                        BonificacionEnganche = int.Parse(bonificacionEnganche),
+                        Total = int.Parse(Total)
+                    };
+
+                    var body = JsonConvert.SerializeObject(venta);
+
+                    request.AddParameter("application/json", body, ParameterType.RequestBody);
+                    IRestResponse response = client.Execute(request);
+
+                    if (response.IsSuccessful)
+                    {
                         grabo = 1;
                     }
                 }

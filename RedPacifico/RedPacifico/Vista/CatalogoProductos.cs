@@ -21,7 +21,10 @@ namespace RedPacifico
             _controlador = new Controlador.CatalogoProductoController(this);
             MostrarProductos();
         }
-
+        /// <summary>
+        /// Se consultan los productos existentes
+        /// </summary>
+        /// <param name="listProductos">lista con los productos, se llena desde el modelo mediante la interfaz</param>
         void ICatalogoProductoController.ConsultaProductos(List<Producto> listProductos)
         {
             try
@@ -30,7 +33,7 @@ namespace RedPacifico
 
                 foreach (Producto producto in listProductos)
                 {
-                    gridCatalogoProductos.Rows.Add(producto.IdProducto, producto.Descripcion);
+                    gridCatalogoProductos.Rows.Add(producto.Id, producto.Descripcion);
                 }
 
             }
@@ -39,7 +42,9 @@ namespace RedPacifico
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Se manda llamar el controlador para consultar los productos
+        /// </summary>
         public void MostrarProductos()
         {
             _controlador.ConsultarCatalogoProductos();
@@ -52,7 +57,11 @@ namespace RedPacifico
 
             this.Close();
         }
-
+        /// <summary>
+        /// Metodo para validar cuando se da clic en editar articulo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridCatalogoProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridCatalogoProductos.Columns[e.ColumnIndex].Name == "columEditar")
